@@ -2,7 +2,7 @@ Prefix Sum
 
 Two Pointers
 
-Sliding Window
+Sliding Window Algorithm
 
 Fast & Slow pointers
 
