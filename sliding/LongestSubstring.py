@@ -17,3 +17,7 @@ class Solution:
 
             return max_len
 
+
+if __name__=='__main__':
+    t=Solution()
+    print(t.lengthOfLongestSubstring("abcdabcbb"))
