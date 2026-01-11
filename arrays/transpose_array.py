@@ -20,9 +20,9 @@ class Solution:
     def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
         transposed_matrix = [[0] * len(matrix) for _ in range(len(matrix[0]))]
 
-        for r in range(len(matrix)):
-            for c in range(len(matrix[0])):
-                transposed_matrix[c][r] = matrix[r][c]
+        for rows in range(len(matrix)):
+            for cols in range(len(matrix[0])):
+                transposed_matrix[cols][rows] = matrix[rows][cols]
 
         print(f"matrix:    {matrix}")
         print(f"transpose: {transposed_matrix}")
