@@ -60,7 +60,7 @@ def unbiased_coin_flip():
 
 if __name__ == '__main__':
     # print(unbiased_coin_flip())
-    results = Counter(biased_coin_flip() for _ in range(1_000_000))
+    results = Counter(biased_coin_flip() for _ in range(6))
     print(f"Biased {results}")
-    results = Counter(unbiased_coin_flip() for _ in range(1_000_000))
+    results = Counter(unbiased_coin_flip() for _ in range(6))
     print(f"Unbiased {results}")

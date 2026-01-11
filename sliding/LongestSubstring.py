@@ -1,23 +1,26 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        bag=set()
+        right=1
+        n=len(list(s))
         left=0
-        n=len(s)
-        max_len=0
+        max_len=1
+        subarr=[s[left]]
 
-        for right in range(n):
-            if s[right] not in bag:
-                bag.add(s[right])
-                max_len = max(max_len,right-left+1)
+        while right<n:
+            if s[left]!= s[right] and s[right] not in subarr:
+                subarr.append(s[right])
+                max_len=max(len(subarr),max_len)
             else:
-                while s[right] in bag:
-                    bag.remove(s[left])
-                    left +=1
-                bag.add(s[right])
+                left=right
+                subarr.clear()
+                subarr.append(s[left])
+            right+=1
+        print(max_len)
+        print(subarr)
+        return max_len
 
-            return max_len
 
 
 if __name__=='__main__':
     t=Solution()
-    print(t.lengthOfLongestSubstring("abcdabcbb"))
+    t.lengthOfLongestSubstring("11111")
