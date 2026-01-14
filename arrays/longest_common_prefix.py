@@ -25,6 +25,7 @@ class Solution:
         first_word_len = len(any_word_from_list)
 
         for next_word in strs[1:]:
+            #observe the slicing will not throw any exception if it exceeds the word length (circular count)
             while any_word_from_list != next_word[0:first_word_len]:
                 first_word_len -= 1
                 if first_word_len == 0:
