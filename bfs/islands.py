@@ -1,5 +1,7 @@
 '''
 
+https://www.youtube.com/watch?v=pV2kpPD66nE
+
 Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
@@ -28,21 +30,22 @@ Output: 3
 
 
 '''
-import collections
-from typing import List
+from collections import deque
 
 
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
 
         rows,cols = len(grid),len(grid[0])
         visit=set()
         islands=0
 
         def bfs(subgrid_row,subgrid_c):
-            q=collections.deque()
+            #remember bfs requires something like a deque
+            q= deque()
             visit.add((subgrid_row,subgrid_c))
             q.append((subgrid_row,subgrid_c))
+            #you can check 1 step in each direction
             directions = [(0,1),(0,-1),(1,0),(-1,0)]
 
             while q:
@@ -50,9 +53,9 @@ class Solution:
                 for dr,dc in directions:
                     r, c = row+dr, col+dc
 
-                    if (r in range(rows) and
+                    if ((r,c) not in visit and
+                            r in range(rows) and #Boundary shields
                             c in range(cols) and
-                            (r,c) not in visit and
                             grid[r][c] == "1"):
                             q.append((r,c))
                             visit.add((r,c))
