@@ -20,23 +20,23 @@ Explanation: There is no common prefix among the input strings.
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
-        any_word_from_list = strs[0]
-        print(any_word_from_list[0:200])
-        first_word_len = len(any_word_from_list)
+        word_str = strs[0]
+        print(word_str[0:200])
+        prefix_len = len(word_str)
 
         for next_word in strs[1:]:
             #observe the slicing will not throw any exception if it exceeds the word length (circular count)
-            while any_word_from_list != next_word[0:first_word_len]:
-                first_word_len -= 1
-                if first_word_len == 0:
+            while word_str != next_word[0:prefix_len]:
+                prefix_len -= 1
+                if prefix_len == 0:
                     return ""
 
-                any_word_from_list = any_word_from_list[0:first_word_len]
+                word_str = word_str[0:prefix_len]
 
-        print(any_word_from_list)
-        return any_word_from_list
+        print(word_str)
+        return word_str
 
 
 if __name__ == "__main__":
     s = Solution()
-    s.longestCommonPrefix(["flower", "flow", "flower", "flowsbythe"])
+    s.longestCommonPrefix(["flowerpot", "flow", "flower", "flowsbythe"])
