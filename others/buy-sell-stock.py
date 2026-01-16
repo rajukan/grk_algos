@@ -33,3 +33,19 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 
 
 '''
+
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        profit = 0
+
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i-1]:
+                profit += prices[i] - prices[i-1]
+
+        print(profit)
+        return profit
+
+if __name__ == '__main__':
+    s = Solution()
+    price=[7,1,5,3,6,4]
+    s.maxProfit(price)
