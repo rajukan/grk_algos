@@ -67,7 +67,8 @@ Notice how the probability for HEADS followed by TAILS is the same as that of TA
 
 def biased_coin_flip():
     p=0.8 #enforce bias]
-    return 1 if random.random()<p else 0
+    # return 1 if random.random()<p else 0
+    return "H" if random.random()<p else "T"
 
 def unbiased_coin_flip():
 
@@ -86,6 +87,9 @@ def unbiased_coin_flip():
 
 if __name__ == '__main__':
     # print(unbiased_coin_flip())
+    # print([biased_coin_flip() for _ in range(3)])
+    # print([unbiased_coin_flip() for _ in range(5)])
+
     results = Counter(biased_coin_flip() for _ in range(1_000_000))
     print(f"Biased {results}")
     results = Counter(unbiased_coin_flip() for _ in range(1_000_000))
