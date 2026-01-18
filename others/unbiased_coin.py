@@ -62,16 +62,22 @@ P(TH) = qp = 0.2 x 0.8 = 0.16
 
 P(TT) = q² = 0.2² = 0.04
 
-Notice how the probability for HEADS followed by TAILS is the same as that of TAILS followed by HEADs. This means that we have two equiprobable events, P(HT) = P(TH), that can substitute as the event space for tossing an unbiased coin, (P(H) = P(T) = 0.5). Essentially, when we get HEADS on the first toss and TAILS on the second, we record that as a fair HEADS event. Similarly, when we get TAILS on the first toss and HEADS on the second, we record that as a fair TAILS event.
+Notice how the probability for HEADS followed by TAILS is the same as that of TAILS followed by HEADs .16. This means that we have two equiprobable events, P(HT) = P(TH), 
+that can substitute as the event space for tossing an unbiased coin, (P(H) = P(T) = 0.5). Essentially, 
+when we get HEADS on the first toss and TAILS on the second, we record that as a fair HEADS event. Similarly, when we get TAILS on the first toss and HEADS on the second, 
+we record that as a fair TAILS event.
 '''
 
 def biased_coin_flip():
-    p=0.8 #enforce bias]
+    #enforce bias
+    p=0.8
+
     # return 1 if random.random()<p else 0
-    return "H" if random.random()<p else "T"
+    return "H" if random.random() < p else "T"
 
 def unbiased_coin_flip():
 
+    #Flip atleast twice
     while True:
         flip_1=biased_coin_flip()
         flip_2=biased_coin_flip()
