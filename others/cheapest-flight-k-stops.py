@@ -72,22 +72,38 @@ class Solution:
         }
         '''
 
-        q = [(src, 0)]
-        minCost = [float('inf') for _ in range(n)]
-        stops = 0
+        flight_queue = [(src, 0)]
+        best_prices_found = [float('inf') for _ in range(n)]
+        layovers_count = 0
 
-        while q and stops <= k:
-            size = len(q)
-            for i in range(size):
-                currNode, cost = q.pop(0)
-                for neighbour, price in adj[currNode]:
-                    if price + cost >= minCost[neighbour]:
+        # Continue searching as long as we have flights to check
+        # and we haven't exceeded the maximum allowed layovers (k).
+        while flight_queue and layovers_count <= k:
+
+            # Take a "snapshot" of how many cities are at the current layover level.
+            cities_at_current_level = len(flight_queue)
+
+            for _ in range(cities_at_current_level):
+                current_city, total_spent_so_far = flight_queue.pop(0)
+
+                # Check all possible direct flights from the current city.
+                for destination_city, ticket_price in adj[current_city]:
+                    new_total_cost = total_spent_so_far + ticket_price
+
+                    # If this new route is more expensive than a previous route
+                    # we've already found, skip it (the gatekeeper).
+                    if new_total_cost >= best_prices_found[destination_city]:
                         continue
-                    minCost[neighbour] = price + cost
-                    q.append((neighbour, minCost[neighbour]))
-            stops += 1
 
-        return -1 if minCost[dst] == float('inf') else minCost[dst]
+                    # If we found a new "best price," update our records and
+                    # add this city to the queue to explore its connections next.
+                    best_prices_found[destination_city] = new_total_cost
+                    flight_queue.append((destination_city, new_total_cost))
+
+            # We finished checking all flights for this specific number of stops.
+            layovers_count += 1
+
+        return -1 if best_prices_found[dst] == float('inf') else best_prices_found[dst]
 
 
 if __name__=='__main__':
