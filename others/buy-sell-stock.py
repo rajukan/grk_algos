@@ -43,7 +43,7 @@ class Solution:
         n = len(prices)
 
         while i < n-1:
-            # look where to buy
+            # look where to buy, only buy when
             while i < n-1 and prices[i] >= prices[i+1]:
                 i += 1
             lo = prices[i]

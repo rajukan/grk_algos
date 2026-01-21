@@ -50,8 +50,27 @@ Approach for this Problem
 class Solution:
     def findCheapestPrice(self, n: int, flights: list[list[int]], src: int, dst: int, k: int) -> int:
         adj = [ [] for _ in range(n) ]
-        for flight in flights:
-            adj[flight[0]].append((flight[1], flight[2]))
+
+        for flight_arr in flights:
+            from_i = flight_arr[0]
+            to_i=flight_arr[1]
+            price_i=flight_arr[2]
+            #This is the core operation. It looks up the starting city in the adj structure and adds a tuple containing the destination and the price.
+            adj[from_i].append((to_i,price_i))
+
+
+        '''
+        Given flights = [[0, 1, 100], [0, 2, 500], [1, 2, 100]]
+        this  adj= [[(1, 100), (2, 500)], [(2, 100)], [], []]
+        
+        Before (Edge List)= Flights: [[0, 1, 100], [0, 2, 500], [1, 2, 100]]
+        After: adj ( simply a list with each index containing 0 or more list of tuples
+        {
+          0: [(1, 100), (2, 500)],  # From City 0, you can go to 1 (cost 100) or 2 (cost 500)
+          1: [(2, 100)],            # From City 1, you can go to 2 (cost 100)
+          2: []                     # From City 2, there are no outgoing flights
+        }
+        '''
 
         q = [(src, 0)]
         minCost = [float('inf') for _ in range(n)]
@@ -74,5 +93,6 @@ class Solution:
 if __name__=='__main__':
         s = Solution()
         print(s.findCheapestPrice(n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1))
-
         print(s.findCheapestPrice(n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1))
+        print(s.findCheapestPrice(n = 4, flights = [[0, 1, 100], [0, 2, 500], [1, 2, 100]], src = 0, dst = 2, k = 1))
+
