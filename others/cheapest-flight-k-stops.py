@@ -100,7 +100,16 @@ class Solution:
                     best_prices_found[destination_city] = new_total_cost
                     flight_queue.append((destination_city, new_total_cost))
 
-            # We finished checking all flights for this specific number of stops.
+                    '''
+                    if the continue statement is confusing, below is the alternative way
+                    '''
+                    # WE ONLY ACT IF the new path is strictly cheaper than what we've found before.
+                    # if new_total_cost < best_prices_found[destination_city]:
+                    #     best_prices_found[destination_city] = new_total_cost
+                    #     flight_queue.append((destination_city, new_total_cost))
+
+
+
             layovers_count += 1
 
         return -1 if best_prices_found[dst] == float('inf') else best_prices_found[dst]
