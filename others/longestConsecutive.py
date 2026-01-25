@@ -1,5 +1,14 @@
 from typing import List
 
+'''
+Given 
+
+input [1,2,4,8,9,11,10,13,12] output 6
+input [100,4,200,1,3,2] output 4
+input [1,1,1,3] output 1
+
+
+'''
 
 class Solution:
     #Hashing mechanism
@@ -23,4 +32,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    s.longest_consecutive([1,2,4,8,9,11,10,13,12])
+    s.longest_consecutive([11,1,3,1,1,1])
