@@ -1,3 +1,13 @@
+'''
+
+Given
+
+nums=[1,2,3,4,5,6,7,8,9], k=3 , output [7, 8, 9, 1, 2, 3, 4, 5, 6]
+
+nums=[-1,-100,3,99], k=2 , output [3,99,-1,-100]
+
+'''
+
 class Solution:
     def rotate(self, nums: list[int], k: int) -> None:
         """
@@ -33,4 +43,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    Solution().rotate(nums=[1,2,3,4,5,6,7,8,9], k=3)
+    Solution().rotate(nums=[-1,-100,3,99], k=2)
