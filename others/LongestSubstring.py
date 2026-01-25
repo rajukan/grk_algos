@@ -1,3 +1,10 @@
+'''
+
+Input [11111] => Output 1
+Input [123412] => Output 4
+
+'''
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         right=1
@@ -23,4 +30,5 @@ class Solution:
 
 if __name__=='__main__':
     t=Solution()
-    t.lengthOfLongestSubstring("11111")
+    t.lengthOfLongestSubstring("123412")
+    # t.lengthOfLongestSubstring("1234129012345")
