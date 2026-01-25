@@ -6,8 +6,11 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.
 
-#Hash method
+
 '''
+
+
+##Hash method
 def two_sum(arr, target):
     index_map={}
     n=len(arr)
