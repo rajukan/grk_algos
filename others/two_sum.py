@@ -6,6 +6,13 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.
 
+input:
+nums = [2,7,11,15], target = 9
+output: [0,1]
+
+nums = [3,2,4,9,11], target = 6
+output: [1,2]
+
 
 '''
 
@@ -22,12 +29,7 @@ def two_sum(arr, target):
         index_map[arr[i]] = i
 
 '''
-5,2,4,1,7,11,12
-
-9 - 5 = 4 {5 -> 0 }
-9 - 2 = 7 {2 -> 1}
-9 - 4 = 5 {0,2}
 
 '''
 
-print(two_sum([5,2,4,1,7,11,12], 9))
+print(two_sum([3,2,4,9,11], 6))
