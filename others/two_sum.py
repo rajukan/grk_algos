@@ -2,7 +2,7 @@
 '''
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You may assume that each input would have exactly one solution, and YOU MAY NOT USE THE SAME ELEMENT TWICE.
 
 You can return the answer in any order.
 
@@ -23,13 +23,11 @@ def two_sum(arr, target):
     n=len(arr)
 
     for i in range(n):
-        complement = target - arr[i]
+        arr_num=arr[i]
+        complement = target - arr_num
         if complement in index_map:
             return [index_map[complement], i]
-        index_map[arr[i]] = i
+        index_map[arr_num] = i
 
-'''
 
-'''
-
-print(two_sum([3,2,4,9,11], 6))
+print(two_sum([3,2,4,9,11], 11))
