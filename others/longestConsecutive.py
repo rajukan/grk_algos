@@ -11,16 +11,13 @@ input [1,1,1,3] output 1
 '''
 
 class Solution:
-    #Hashing mechanism
     def longest_consecutive(self, nums:List[int]) -> int:
         max_len = 0
-        nums=set(nums)
 
         for num in nums:
 
             if (num -1) not in nums: #Starting point
                 length =1
-
                 while (num + length) in nums:
                     length +=1
 
@@ -32,4 +29,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    s.longest_consecutive([11,1,3,1,1,1])
+    s.longest_consecutive([11,1,3,1,1,1,12,14,13,15,16])
