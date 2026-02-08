@@ -45,7 +45,7 @@ class Solution:
             q= deque()
             visit.add((subgrid_row,subgrid_c))
             q.append((subgrid_row,subgrid_c))
-            #you can check 1 step in each direction
+            #you can check 1 step in each direction, note, the origin is (0,0) and you take a step in all 4 directions
             directions = [(0,1),(0,-1),(1,0),(-1,0)]
 
             while q:
