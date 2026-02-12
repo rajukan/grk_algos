@@ -76,30 +76,47 @@ def removeDuplicates(nums: list[int]) -> int:
     return nums
 
 '''
-Squares of a Sorted Array
+    Input: "geeksforgeeks"
+    Output: "geeksforgeeks"
+    Explanation: The vowels 'e', 'e', 'o', 'e', 'e' are reversed, resulting in "geeksforgeeks".
 
-Input: sorted array (can include negatives)
-Output: sorted squares
+    Input: "helloworld"
+    Output: "hollowerld"
+    Explanation: The vowels 'e', 'o', 'o' are reversed, resulting in "hollowerld".
 
-Invariant: largest square is always at one of the ends
+    Input: "programming"
+    Output: "prigrammong"
+    Explanation: The vowels 'o', 'a', 'i' are reversed, resulting in "prigrammong".
 '''
 
-def sortedSquares(nums: list[int]) -> list[int]:
-    n = len(nums)
-    res = [0] * n
-    left, right = 0, n - 1
-    write = n - 1
+def isVowel(c):
+    return c in "aeiou"
 
-    while left <= right:
-        if abs(nums[left]) > abs(nums[right]):
-            res[write] = nums[left] ** 2
+def reverseVowels(s):
+    s = list(s)
+    left, right = 0, len(s) - 1
+
+    # Two-pointer approach to swap vowels
+    while left < right:
+
+        # Move left pointer until a vowel is found
+        while left < right and not isVowel(s[left]):
             left += 1
-        else:
-            res[write] = nums[right] ** 2
-            right -= 1
-        write -= 1
 
-    print(res)
+        # Move right pointer until a vowel is found
+        while left < right and not isVowel(s[right]):
+            right -= 1
+
+        # Swap the vowels
+        if left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+
+    print("".join(s))
+
+
+
 
 
 
@@ -107,4 +124,4 @@ if __name__ == "__main__":
     # print(twoSum([2,7,11,15],9))
     # print(twoSum([2,3,4,5,9,11],6))
     # print(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
-    sortedSquares([-2,-1,3,4,-6])
+    reverseVowels("programming")
