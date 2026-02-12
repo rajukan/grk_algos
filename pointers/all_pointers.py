@@ -116,6 +116,21 @@ def reverseVowels(s):
     print("".join(s))
 
 
+def findDuplicate(nums: list[int]):
+    slow = nums[nums[0]]
+    fast = nums[nums[nums[0]]]
+
+    while slow != fast:
+        slow = nums[slow]
+    fast = nums[nums[fast]]
+
+    slow = nums[0]
+
+    while slow != fast:
+        slow = nums[slow]
+    fast = nums[fast]
+
+    print(slow)
 
 
 
@@ -125,3 +140,4 @@ if __name__ == "__main__":
     # print(twoSum([2,3,4,5,9,11],6))
     # print(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
     reverseVowels("programming")
+    findDuplicate([1,1,4,5,8])
