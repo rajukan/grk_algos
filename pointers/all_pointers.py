@@ -142,19 +142,22 @@ Output: 3
 
 '''
 
-def findDuplicate(nums: list[int]):
-    slow = nums[nums[0]]
-    fast = nums[nums[nums[0]]]
-
-    while slow != fast:
-        slow = nums[slow]
-    fast = nums[nums[fast]]
-
+def findDuplicate(nums: list[int]) -> int:
     slow = nums[0]
+    fast = nums[0]
 
-    while slow != fast:
+    # Phase 1
+    while True:
         slow = nums[slow]
-    fast = nums[fast]
+        fast = nums[nums[fast]]
+        if slow == fast:
+            break
+
+    # Phase 2
+    slow2 = nums[0]
+    while slow != slow2:
+        slow = nums[slow]
+        slow2 = nums[slow2]
 
     print(slow)
 
