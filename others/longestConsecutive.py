@@ -29,4 +29,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    s.longest_consecutive([11,1,3,1,1,1,12,14,13,15,16])
+    s.longest_consecutive([16,15,14,13,12])
