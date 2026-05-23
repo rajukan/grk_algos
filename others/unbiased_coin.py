@@ -88,15 +88,25 @@ def unbiased_coin_flip():
         #else continue to flip again
 
 
+def flip_results_withcounter(ranger,biased=False):
+    if biased:
+        flip_results=[biased_coin_flip() for _ in range(ranger)]
+    else:
+        flip_results=[unbiased_coin_flip() for _ in range(ranger)]
+    results=Counter(flip_results)
+    print(results)
+    print(flip_results)
+
 
 
 
 if __name__ == '__main__':
     # print(unbiased_coin_flip())
-    # print([biased_coin_flip() for _ in range(3)])
-    # print([unbiased_coin_flip() for _ in range(5)])
-
-    results = Counter(biased_coin_flip() for _ in range(1_000_000))
-    print(f"Biased {results}")
-    results = Counter(unbiased_coin_flip() for _ in range(1_000_000))
-    print(f"Unbiased {results}")
+    # print([biased_coin_flip() for _ in range(300)])
+    flip_results_withcounter(1_00,biased=True)
+    flip_results_withcounter(1_00,biased=False)
+    #
+    # results = Counter(biased_coin_flip() for _ in range(1_000_000))
+    # print(f"Biased {results}")
+    # results = Counter(unbiased_coin_flip() for _ in range(1_000_000))
+    # print(f"Unbiased {results}")
