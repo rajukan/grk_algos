@@ -28,29 +28,26 @@ Trick: Instead of hashmap use candies array
 Trick: Instead of hashmap use candies array
 '''
 
-class Solution(object):
-    def candy(self, ratings):
-        n = len(ratings)
-        #initialize all kids get atleast 1
-        candies = [1] * n
-        #compare with previous kid, Left -> Right
-        for i in range(1, n):
-            if ratings[i] > ratings[i - 1]:
-                candies[i] = candies[i - 1] + 1
+def candies(nums):
+    n = len(nums)
 
-        #right to left and compare,
-        for i in range(n - 2, -1, -1):
-            if ratings[i] > ratings[i+1]:
-                # As the previous kid has better ratings meaning  either he has to get 1 more  than i ( candies[i]+1) or whatever he holds currently, whichever is maximum
-                candies[i] = max(candies[i] + 1, candies[i])
-        print(ratings)
-        print(candies)
-        return sum(candies)
+    candy = [1] * n
+
+    # Left -> Right
+    for i in range(1, n):
+        if nums[i] > nums[i - 1]:
+            candy[i] = candy[i - 1] + 1
+
+    # Right -> Left
+    for i in range(n - 2, -1, -1):
+        if nums[i] > nums[i + 1]:
+            candy[i] = max(candy[i], candy[i + 1] + 1)
+
+    return sum(candy)
 
 
 if __name__ == '__main__':
-    solution = Solution()
     ratings=[1,2,0,4,10]
 
-    print(solution.candy(ratings))
+    print(candies(ratings))
 
