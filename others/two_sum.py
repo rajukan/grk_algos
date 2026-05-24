@@ -23,11 +23,10 @@ def two_sum(arr, target):
     n=len(arr)
 
     for i in range(n):
-        arr_num=arr[i]
-        complement = target - arr_num
+        complement = target - arr[i]
         if complement in index_map:
             return [index_map[complement], i]
-        index_map[arr_num] = i
+        index_map[arr[i]] = i
 
 
 print(two_sum([3,2,4,9,11], 11))
