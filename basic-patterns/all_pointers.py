@@ -68,6 +68,20 @@ def twoSum(numbers: list[int], target: int) -> list[int]:
             right -= 1
 
 
+##Hash method
+def two_sum(arr, target):
+    index_map={}
+    n=len(arr)
+
+    for i in range(n):
+        complement = target - arr[i]
+        if complement in index_map:
+            return [index_map[complement], i]
+        index_map[arr[i]] = i
+
+
+print(two_sum([3,2,4,9,11], 11))
+
 '''
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
 
@@ -92,14 +106,18 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 [1,2,3,4,_,_,_,_]
 '''
+def dedup_sorted_array(nums:list[int]) -> int:
+    n=len(nums)
+    left=0
+    right=1
 
-def removeDuplicates(nums: list[int]) -> int:
-    slow = 1
-    for fast in range(1, len(nums)):
-        if nums[fast] != nums[fast - 1]:
-            nums[slow] = nums[fast]
-            slow += 1
-    return nums
+    while right<n:
+        if nums[left] != nums[right]:
+            left+=1
+            nums[left] = nums[right]
+        right+=1
+    print(left+1)
+    return left+1
 
 '''
     Input: "geeksforgeeks"
