@@ -16,6 +16,7 @@ Output: [[1,4],[2,5],[3,6]]
 
 
 '''
+
 class Solution:
     def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
         transposed_matrix = [[0] * len(matrix) for _ in range(len(matrix[0]))]
@@ -27,6 +28,13 @@ class Solution:
         print(f"matrix:    {matrix}")
         print(f"transpose: {transposed_matrix}")
         return transposed_matrix
+
+    '''
+    using list comprehension
+    temp = [[matrix[j][i] for j in range(len(matrix))]  for i in range(len(matrix))]
+    print(matrix)
+    print(temp)
+    '''
 
 if __name__ == "__main__":
     matrix = [[1,2,3],[4,5,6],[7,8,9]]
