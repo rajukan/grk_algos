@@ -34,24 +34,24 @@ Output: false
 
 
 
+def parens(paren_strs):
+    openers=['(','[','{']
+    closers=[')',']','}']
 
-def isValid(s: str) -> bool:
-    stack = []
-    mapping = {")": "(", "}": "{", "]": "["}
+    mapper = {
+        ")":"(",
+        "]":"[",
+        "}":"{",
+    }
+    stack=[]
 
-    for char in s:
-        # if it's an opening bracket, push onto stack
-        if char in mapping.values():
-            stack.append(char)
-        # if it's a closing bracket, check match with top of stack
-        elif char in mapping:
-            if not stack or stack.pop() != mapping[char]:
+    for paren_str in paren_strs:
+        if paren_str in openers:
+            stack.append(paren_str)
+        elif paren_str in closers:
+            if not stack or stack.pop() != mapper[paren_str]:
                 return False
-        else:
-            # unexpected character (optional: treat as invalid)
-            return False
+    return len(stack)==0
 
-    # all brackets matched if stack is empty
-    return len(stack) == 0
 
-print(isValid("{[()]}"))
+print(parens("{[(])}"))
