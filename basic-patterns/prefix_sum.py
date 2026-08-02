@@ -10,27 +10,28 @@ from collections import defaultdict
 
 
 def subarray_sum(nums,k):
-    prefix_counts = defaultdict(int)
-    prefix_counts[0] = 1
-    prefix_sum=0
-    count=0
+    count = 0
+    prefix = 0
+    freq = defaultdict(int)
+    freq[0]=1
 
     for num in nums:
-        prefix_sum+=num
-        print(f"{prefix_sum=}")
-        print(prefix_counts)
-        count += prefix_counts.get(prefix_sum-k,0)
-        print(count)
-        prefix_counts[prefix_sum] +=1
+        prefix+=num
+
+        #have we seen (prefix -k)  before?
+        if (prefix - k) in freq:
+            count += freq[prefix-k]
+
+        #record
+        freq[prefix]+=1
 
     print(count)
-    print(prefix_counts)
     return count
 
 
 
 
-# subarray_sum([1,5,6,2,4,3,3,9],6)
+subarray_sum([1,5,6,2,4,3,3,9],6)
 
 '''
 Input: nums = [0,1]
@@ -66,4 +67,4 @@ def zerone(nums):
     print(cntmap)
     return count
 
-zerone([0,1,0,0,1])
+# zerone([0,1,0,0,1])
