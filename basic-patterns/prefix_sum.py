@@ -17,13 +17,14 @@ def subarray_sum(nums,k):
 
     for num in nums:
         prefix+=num
+        #record current prefix
+        freq[prefix]+=1
 
         #have we seen (prefix -k)  before?
         if (prefix - k) in freq:
             count += freq[prefix-k]
 
-        #record
-        freq[prefix]+=1
+
 
     print(count)
     return count
@@ -31,7 +32,7 @@ def subarray_sum(nums,k):
 
 
 
-subarray_sum([1,5,6,2,4,3,3,9],6)
+subarray_sum([1,5,6,2,4,3,3,9,-3],6)
 
 '''
 Input: nums = [0,1]
