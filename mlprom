@@ -1,0 +1,122 @@
+applied ai ml preparation
+
+How should I prepare for a Lead Machine learning engineer which is more on models, data cleaning, (pandas). Just analyze and finally come up with a topic and structure. Feel free to update the areas once i provide some real interview questions
+
+I'd expect four major areas:
+
+1. Python (10%) and Pandas (15%)
+2. Statistics and Experimental Design 20%
+3. Applied Machine Learning 30%
+4. ML System Design / MLOps 15%
+5. Leadership and Decision Making 10%
+
+
+Just remember this is for machine learning, data scientist roles, not to be confused with generative AI roles
+
+here is an machine learning interview question, try to add this to one of those areas and i would like similar problems to tackle in future
+ You have a dataset composed of 10 numerical features, one binary feature, and one numerical output variable. You assume the 10 numerical features behave nicely.
+You train a linear regression model on the samples when the binary feature is 0, and you train a linear regression model on the samples when the binary feature is 1.
+How can you determine if the binary feature made a statistical difference between the two models?
+Follow up: what possible behaviors could the 10 numerical features exhibit to cause the previous assumptions made for determining the statistical difference to fail.
+
+Here is another question. Carefully see if this fits into one of the pillars mentioned earlier
+someone applied to a Data Scientist job, where I got rejected. I was given a churn prediction dataset as a homework. The requirement was to create a notebook where I understand the data, do any preprocessing then build and evaluate a model. 
+ Your function 'is_not_zero' sticks out a little, it's really not necessary.
+Minor issues with formatting of markdown (should be ```python , then new line).
+KNN is not such a strong model, and if that's the best you've found it's a little suspicious.
+You scale your data min:0 max:1, while I think it's more common to do mean:0 std:1.
+You seem to try every possible algorithm from sklearn, which feels like you're just finished a textbook, and not sure how to approach this problem. (I would've just removed everything that didn't work, and kept it short). Perhaps you could've cleaned up notebook a little. It takes effort to try different things, but if they aren't adding any value, perhaps it'll make sense to only keep things that worked.
+the way you're treating outliers - it works but it can be written much more elegantly
+`df = df.clip(upper=df.quantile(0.95), axis=1)` -- something like this for instance, same for normalisation.
+The conclusion is a little strange too - more hyper-parameter tuning probably won't help much, given you've done it already rather extensively. Using NNs is definitely an option, though perhaps for tabular data of this size it might not be easy to make it work. PCA - you could've already tried it already in the notebook, though given that there aren't that many features, maybe it's not needed.
+I'm surprised you didn't get better results with random forest. Also random forest doesn't need outlier removal or normalisation, you could've used original data.
+You've never attempted to interpret model results and find out which features are most important.
+You haven't plotted ROC curve, which perhaps would've been a reasonable way to evaluate this kind of task.
+This notebook shows that you know the theory, but it doesn't show that you have experience solving real-world problems.
+
+
+another one, do the same, which pillar
+Hello Everyone, I am a new grad and I am currently interviewing with a Startup for the position of ML Engineer. Having successfully navigated through the preceding rounds (5 rounds) of interviews, I find myself a bit stuck in the final coding assessment (take-home). While I have attempted the problem and have sent them the code, the feedback I received suggests that there might be a different approach they are seeking. Recognizing your expertise in the field, I believe your insights/ help could greatly assist me in addressing this challenge (please refer to the dataset link below to get a quick insight about the features).
+I will explain the scenario as it is:
+1. ( Interviewer sends me the question via email):
+https://www.kaggle.com/datasets/irkaal/english-premier-league-results
+"Please use the results data to build a model that estimates the likelihood of each team winning the game. Send back a .ipynb notebook with code and any explanation about what you are doing and why. "
+<some notebook>
+    Feedback of the interviewer: Your model doesn't really answer the question. It needs to take in input two teams and estimate the probability of each winning the game. This data should not be using stats at half time or stats based on the results of that game at all. Imagine you are placing a bet about the outcome of a game that starts at 1:00pm and you have to place your bet before the game kicks off. The data available to you before kick off if the only data you would have available and that is how your model should also view the data.
+I am not sure what the question implies. If I do not use any match stats, then the only training features that I can feed the model are the team names, the referee name, and the season. This doesn't make sense IMO. I am also having a thought should I be using LSTM/ GRU? If yes, then how to proceed with it? 
+ If the interviewer wants to predict the outcome of the game before it begins then you can’t use any information from after it begins. Otherwise you have leakage. Whether that’s a good model or not is a different question. Maybe you can engineer some features from previous games.
+I haven’t looked at the data but if it’s not a time series nor rather large I don’t see why an LSTM would be a good idea. Use something very simple and then explain how you’d improve on that solution in further iterations. 
+try a classification like approach using xgb/lgb. either the left team wins (outcome = 0) or the right team wins (outcome = 1). the order of teams is determined alphabetically. Features could be derived from previous matches and team stats.
+
+
+another question , 
+
+---
+## Question : Operation Cyber Sentinel
+In the digital metropolis of Neo-Banking City, a cutting-edge financial institution, CyberBank, has been facing a critical challenge. Amidst the digital transactions that flow like a river through the city, there lurks a hidden menace – fraudulent transactions that threaten the security and trust of the bank's customers.
+Enter you, a renowned data scientist known for your prowess in unraveling complex data puzzles. CyberBank, in its quest to fortify its defenses against financial fraud, has enlisted your expertise. Your mission, should you choose to accept it, is to develop a sophisticated algorithm capable of detecting anomalies in transaction data, effectively sniffing out potential frauds.
+Armed with a dataset of transaction amounts, your task is to create a function, **`detect_fraud_transactions`**, that can sift through this sea of data and flag transactions that stand out as suspicious. These anomalies could range from unusually high transactions to irregular patterns that deviate from typical customer behavior.
+In this digital age, where financial security is paramount, your role is more than just a job – it's a service to the citizens of Neo-Banking City, ensuring their financial safety in an ever-evolving cyber landscape. As you delve into this task, remember, the algorithm you create is not just a set of codes; it's the shield that guards against unseen financial threats. Will your skills be sharp enough to protect the virtual vaults of CyberBank? The answer lies in the algorithm you are about to craft.
+---
+### Problem Statement
+Write a function or develop an algorithm to detect anomalous transactions in financial data, which could indicate fraud. The algorithm should identify transactions that are significantly different from the norm.
+### Constraints
+The algorithm should be efficient and effective at identifying extreme outliers. Various statistical methods or machine learning models can be utilized for this purpose.
+### Example
+**Input:** `[23.45, 100.00, 98.99, 10500.00, 56.23, 78.90, 100000.00, 45.67]`
+**Output:** `[3, 6]`
+### Test Cases
+| Test Case | Input | Expected Output |
+|-----------|-------|-----------------|
+| 1 | `[23.45, 100.00, 98.99, 10500.00, 56.23, 78.90, 100000.00, 45.67]` | `[3, 6]` |
+| 2 | (Not provided in images) | (Not provided) |
+| 3 | (Not provided in images) | (Not provided) |
+---
+### Notes
+- The output `[3, 6]` corresponds to the **indices** of the anomalous transactions in the input array (0-based indexing):
+  - Index `3` → `10500.00`
+  - Index `6` → `100000.00`
+- The function name should be **`detect_fraud_transactions`**.
+- The algorithm should be efficient and effective at identifying extreme outliers.
+
+
+Use the following as a style reference for generating ML interview practice questions. This is based on CMU's 10-601 Machine Learning course, Exam 1 Practice Problems. Generate questions in a similar format and covering similar topics:
+
+Format style:
+
+Numerical answer questions (compute a specific value from given data)
+True/False questions that require a brief justification, not just the answer
+Short answer questions (1-2 sentences)
+"Select all that apply" questions with multiple correct options
+Questions often reference a small concrete dataset or diagram (e.g., a scatter plot with labeled points, a small table of values)
+
+Topics to draw from:
+
+Decision trees: splitting criteria, overfitting vs tree depth, ID3 optimality, hybrid models like "perceptron trees" combining decision trees with perceptrons at leaf nodes
+k-Nearest Neighbors: classification and regression variants, effect of k on bias/variance, decision boundary shape, ties and distance measures, k as a hyperparameter and how to select it via validation (not training error)
+Model selection and errors: diagnosing overfitting/underfitting from train vs test error patterns, effects of training data size, cross-validation mechanics and compute-budget tradeoffs, k-fold procedure correctness
+Perceptron: convergence guarantees, mistake bounds, effect of feature scaling, inductive biases, manual weight-update tracing through examples, kernelized/modified update rules
+Linear regression: closed-form solutions for simple cases, valid matrix/vector formulations of the MSE objective, effect of outliers and duplicated data on the fitted line, Gaussian noise assumption and MLE equivalence to squared error
+
+
+
+Use the following as a style reference for generating ML interview practice questions. This is based on an ETH Zurich Introduction to Machine Learning final exam. Generate questions in a similar format and covering similar topics:
+
+**Format style:**
+- Multiple choice questions with a single correct answer, sometimes requiring a short calculation first
+- True/False questions
+- Questions that reference a small concrete dataset, confusion matrix, or diagram
+- Questions with numeric answer options where you need to compute a specific value (e.g. a rate or statistic) to pick the right choice
+
+**Topics to draw from (deep learning / neural network / GAN / gradient-descent-optimization sections excluded):**
+- Regression fundamentals: convexity of the squared-error objective, conditions for a zero-residual solution, stochastic gradient descent update rules for linear regression
+- Model evaluation: train vs validation risk relationships, effect of train/validation split size on estimate quality, whether validation risk is an unbiased estimator of true population risk, effect of training set size on model risk
+- Classification metrics: computing precision, recall, false discovery rate (FDR), false positive/negative rates from a confusion matrix; behavior of random classifiers under FPR constraints; classifiers with an abstention option and cost-weighted 0-1 loss
+- Robust loss functions: Huber loss behavior relative to squared and absolute loss, convexity, whether it induces sparsity
+- Kernels: valid kernel properties, feature maps and linear separability, kernel matrix construction cost, whether every kernel corresponds to a finite-dimensional feature map
+- PCA / dimensionality reduction: the optimization objective, closed-form solution properties (trace of projection matrix), relationship to eigenvalues/eigenvectors of the covariance matrix, edge cases like duplicate features
+- Frequentist vs Bayesian inference: bootstrap estimates vs distribution-based estimates, MLE vs MAP, point estimates vs posterior distributions
+- Expectation-Maximization and clustering: likelihood of a data point under a mixture model, E-step assignment probability computation, M-step parameter updates (both soft and hard EM), Gaussian Mixture Models vs k-means equivalence under constraints
+
+Please generate one question at a time in this style, and include an answer key with a brief explanation for each.
+
