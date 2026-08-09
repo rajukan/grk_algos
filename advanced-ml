@@ -1,0 +1,430 @@
+Act as a Principal Machine Learning Engineer interviewer.
+
+Cover Statistical Machine Learning Foundations at an advanced level.
+
+Focus on:
+
+1. Linear Regression
+   - OLS
+   - Normal equations
+   - MLE interpretation
+   - estimator bias and variance
+   - assumptions and failure modes
+
+2. Logistic Regression
+   - likelihood
+   - decision boundary
+   - calibration
+   - linear separability
+   - complete separation
+
+3. Regularization
+   - Ridge
+   - LASSO
+   - Elastic Net
+   - Bayesian interpretation
+   - sparsity
+   - multicollinearity
+
+4. Classification
+   - generative vs discriminative models
+   - Fisher discriminant
+   - logistic regression
+   - margin-based methods
+
+5. Bias Variance Tradeoff
+   - underfitting
+   - overfitting
+   - regularization effects
+   - data size effects
+   - ensemble impacts
+
+6. Feature Engineering
+   - polynomial features
+   - interaction features
+   - scaling
+   - feature selection
+
+Interview me one question at a time.
+
+After each answer:
+- critique my reasoning
+- identify gaps
+- provide ideal answer
+- explain principal-level insights
+- discuss practical production implications
+
+Difficulty:
+Google L5-L6 / Microsoft Principal / Meta E6-E7.
+
+Act as a Principal ML interviewer specializing in probabilistic modeling.
+
+Test me deeply on:
+
+1. Probability fundamentals
+   - conditional probability
+   - Bayes theorem
+   - likelihood
+   - posterior
+
+2. Parameter estimation
+   - MLE
+   - MAP
+   - consistency
+   - asymptotic behavior
+
+3. Bayesian modeling
+   - priors
+   - conjugate priors
+   - posterior inference
+   - uncertainty quantification
+
+4. Model selection
+   - AIC
+   - BIC
+   - MDL
+   - Occam's Razor
+
+5. Mixture Models
+   - GMMs
+   - latent variables
+   - clustering assumptions
+
+6. EM algorithm
+   - E step
+   - M step
+   - convergence guarantees
+   - local optimum issues
+
+7. Decision theory
+   - risk minimization
+   - cost-sensitive prediction
+   - abstention decisions
+   - asymmetric loss
+
+For every question:
+- ask interview-style follow-ups
+- increase depth based on my responses
+- connect theory to production ML systems
+- compare frequentist and Bayesian perspectives
+
+
+Act as a machine learning optimization expert interviewing a Principal ML engineer.
+
+Cover:
+
+1. Convex optimization
+   - convexity
+   - strong convexity
+   - local vs global minima
+
+2. Gradient Descent
+   - derivations
+   - convergence properties
+   - learning rate effects
+
+3. Stochastic Gradient Descent
+   - variance of gradient estimates
+   - mini-batches
+   - noise and generalization
+
+4. Regularized optimization
+   - Ridge objective
+   - LASSO objective
+   - Elastic Net
+
+5. Duality
+   - primal vs dual
+   - weak duality
+   - strong duality
+
+6. SVM optimization
+   - margin maximization
+   - support vectors
+   - kernel trick
+
+Requirements:
+- alternate between theoretical and practical questions
+- ask numerical examples
+- require derivations when appropriate
+- explain intuition behind every result
+- highlight common interview mistakes
+
+Act as an advanced ML interviewer.
+
+Focus exclusively on unsupervised learning and representation learning.
+
+Topics:
+
+1. PCA
+   - variance maximization
+   - reconstruction error
+   - covariance matrix
+   - eigenvectors and eigenvalues
+
+2. Kernel PCA
+   - feature maps
+   - implicit high-dimensional spaces
+   - kernel trick
+
+3. Clustering
+   - k-means
+   - assumptions
+   - limitations
+
+4. Gaussian Mixture Models
+   - soft clustering
+   - covariance structures
+   - cluster responsibilities
+
+5. Dimensionality Reduction
+   - PCA vs autoencoders
+   - linear vs nonlinear methods
+
+6. Latent Variable Models
+
+Interview format:
+- start with fundamentals
+- move toward system-level applications
+- ask tradeoff questions
+- compare methods
+- explain when each method fails
+
+Act as a Principal ML System Design interviewer.
+
+Focus on production machine learning.
+
+Cover:
+
+1. End-to-end ML lifecycle
+   - data
+   - feature engineering
+   - training
+   - deployment
+   - monitoring
+
+2. Feature Stores
+
+3. Batch vs Real-time inference
+
+4. Model Monitoring
+   - drift
+   - calibration
+   - data quality
+   - performance degradation
+
+5. Retraining strategies
+
+6. Experiment management
+
+7. Cost-performance tradeoffs
+
+8. Reliability
+   - SLAs
+   - fault tolerance
+   - rollback mechanisms
+
+Give me system design questions such as:
+
+- recommendation systems
+- ranking systems
+- fraud detection
+- forecasting systems
+- personalization systems
+
+After every design:
+- critique architecture
+- discuss scaling bottlenecks
+- discuss business tradeoffs
+- suggest principal-level improvements
+
+
+Act as a hiring committee member evaluating a Principal Machine Learning Engineer.
+
+Focus on:
+
+1. Technical Leadership
+
+2. Architecture Decisions
+
+3. Build vs Buy
+
+4. Model Selection Tradeoffs
+
+5. Organizational Influence
+
+6. Project Prioritization
+
+7. Stakeholder Management
+
+8. Mentorship
+
+9. Failure Analysis
+
+10. ML ROI
+
+Ask behavioral and technical leadership questions.
+
+For each question:
+- evaluate my answer
+- score me from 1-5
+- identify weak signals
+- identify strong principal-level signals
+- explain what a hiring committee would conclude
+- provide a model answer
+
+Use Microsoft, Meta, Google and Amazon Principal-level expectations.
+
+
+Good idea. Here are 2 representative interview-style questions per pillar, selected directly from the themes that appeared in your PDFs and slightly reworded into interview format.
+
+Pillar 1: Statistical Machine Learning Foundations (30%)
+Question 1
+
+You are given the linear regression model:
+
+Y=Xβ+ϵY = X\beta + \epsilon
+
+with Gaussian noise.
+
+Derive the Maximum Likelihood Estimator (MLE) for β\beta.
+Is the estimator unbiased?
+What is its covariance matrix?
+Question 2
+
+Suppose a feature in logistic regression only appears in positive examples and never in negative examples.
+
+What happens to the MLE estimate?
+Why does it happen mathematically?
+How would Ridge and LASSO change the solution?
+Pillar 2: Probabilistic Modeling & Statistical Inference (25%)
+Question 1
+
+Explain the difference between:
+
+Likelihood
+Prior
+Posterior
+MLE
+MAP
+
+Then explain why a MAP estimate approaches the MLE estimate as the dataset grows large. Explain any exceptions.
+
+Question 2
+
+You have data generated from a Gaussian Mixture Model.
+
+Why can't we directly maximize the likelihood easily?
+Explain the E-step.
+Explain the M-step.
+Why does EM not decrease the likelihood after each iteration?
+Pillar 3: Optimization (15%)
+Question 1
+
+Compare Gradient Descent and Stochastic Gradient Descent.
+
+Discuss:
+
+computational cost
+gradient variance
+convergence behavior
+generalization effects
+
+When would you prefer SGD over GD?
+
+Question 2
+
+Explain weak duality.
+
+Then explain why the dual formulation is important for kernelized SVMs operating in very high-dimensional or infinite-dimensional spaces.
+
+Pillar 4: Representation Learning & Unsupervised Learning (10%)
+Question 1
+
+Suppose PCA is applied to a centered dataset.
+
+What objective is PCA optimizing?
+Why are principal components eigenvectors of the covariance matrix?
+What information is retained when selecting the top-k components?
+Question 2
+
+What is the kernel trick?
+
+Given:
+
+k(x,x′)=(xTx′+1)2k(x,x') = (x^Tx'+1)^2
+What type of feature space does this correspond to?
+Why might kernel PCA outperform linear PCA?
+Pillar 5: ML Systems & Evaluation (10%)
+Question 1
+
+Your model has:
+
+very low training error
+significantly higher validation error
+
+Walk through a systematic diagnosis using:
+
+bias-variance concepts
+regularization
+feature engineering
+data collection
+
+What would you investigate first?
+
+Question 2
+
+A team selected a model because it achieved the best test-set performance.
+
+Why is this problematic?
+
+How should train/validation/test datasets be used correctly during model development?
+
+Pillar 6: Leadership & Technical Decision Making (10%)
+
+(These weren't explicit in the PDFs, so these are derived from repeated tradeoff questions in the material.)
+
+Question 1
+
+You have three candidate models:
+
+Logistic Regression
+SVM
+Gaussian Mixture Model
+
+All achieve similar accuracy.
+
+How would you decide which model to deploy considering:
+
+interpretability
+maintenance
+latency
+robustness
+monitoring requirements
+
+Based on concepts appearing throughout the exams.
+
+Question 2
+
+A team wants to eliminate regularization because it slightly improves training accuracy.
+
+Would you approve the change?
+
+Discuss:
+
+overfitting risk
+bias-variance tradeoff
+long-term production impact
+evidence you would require before making the decision.
+
+If I had to choose the single most representative question from each pillar:
+
+Statistical ML: Derive Ridge vs LASSO tradeoffs.
+Inference: MLE vs MAP and Bayesian interpretation.
+Optimization: SGD vs GD.
+Unsupervised: PCA derivation and intuition.
+Systems: Train/validation/test leakage and overfitting diagnosis.
+Leadership: Model selection tradeoffs under business constraints.
+
+
+
