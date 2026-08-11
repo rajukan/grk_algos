@@ -79,6 +79,34 @@ The algorithm should be efficient and effective at identifying extreme outliers.
 - The function name should be **`detect_fraud_transactions`**.
 - The algorithm should be efficient and effective at identifying extreme outliers.
 
+another questions
+
+Here is the extracted text from the image:
+
+---
+
+Let \( S_{i,t} \) be the price of stock \( i \) on day \( t \). Suppose we fit a multivariate regression
+
+\[y = X\beta + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2),\]
+
+where \( y \in \mathbb{R}^n \) and \( X \in \mathbb{R}^{n \times 2} \) are given by
+
+\[y_i = S_{i,t+1}\]
+\[X_{i,1} = S_{i,t}\]
+\[X_{i,2} = S_{i,t-1},\]
+
+for some fixed \( t \). Intuitively, what should the coefficients \( (\beta_1, \beta_2) \) be?
+
+We could also fit two univariate regressions
+
+\[y = x_j \beta_j' + \varepsilon, \quad j = 1, 2,\]
+
+where \( x_j \) denotes the \( j \)-th column of \( X \). What should \( (\beta_1', \beta_2') \) be?
+
+Which of the coefficients \( \beta_1 \) and \( \beta_1' \) has a smaller standard error?
+
+---
+
 
 Use the following as a style reference for generating ML interview practice questions. This is based on CMU's 10-601 Machine Learning course, Exam 1 Practice Problems. Generate questions in a similar format and covering similar topics:
 
