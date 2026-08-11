@@ -426,5 +426,375 @@ Unsupervised: PCA derivation and intuition.
 Systems: Train/validation/test leakage and overfitting diagnosis.
 Leadership: Model selection tradeoffs under business constraints.
 
+---
+CS229 Problem Set #2 1
+CS 229, Public Course
+Problem Set #2: Kernels, SVMs, and Theory
+1. Kernel ridge regression
+In contrast to ordinary least squares which has a cost function
+J(θ) = 1
+2
+m∑
+i=1
+(θT x(i) − y(i))2,
+we can also add a term that penalizes large weights in θ. In ridge regression, our least
+squares cost is regularized by adding a term λ‖θ‖2, where λ > 0 is a fixed (known) constant
+(regularization will be discussed at greater length in an upcoming course lecutre). The ridge
+regression cost function is then
+J(θ) = 1
+2
+m∑
+i=1
+(θT x(i) − y(i))2 + λ
+2 ‖θ‖2.
+(a) Use the vector notation described in class to find a closed-form expreesion for the
+value of θ which minimizes the ridge regression cost function.
+(b) Suppose that we want to use kernels to implicitly represent our feature vectors in a
+high-dimensional (possibly infinite dimensional) space. Using a feature mapping φ,
+the ridge regression cost function becomes
+J(θ) = 1
+2
+m∑
+i=1
+(θT φ(x(i)) − y(i))2 + λ
+2 ‖θ‖2.
+Making a prediction on a new input xnew would now be done by computing θT φ(xnew).
+Show how we can use the “kernel trick” to obtain a closed form for the prediction
+on the new input without ever explicitly computing φ(xnew). You may assume that
+the parameter vector θ can be expressed as a linear combination of the input feature
+vectors; i.e., θ = ∑m
+i=1 αiφ(x(i)) for some set of parameters αi.
+[Hint: You may find the following identity useful:
+(λI + BA)−1B = B(λI + AB)−1.
+If you want, you can try to prove this as well, though this is not required for the
+problem.]
+2. ℓ2 norm soft margin SVMs
+In class, we saw that if our data is not linearly separable, then we need to modify our
+support vector machine algorithm by introducing an error margin that must be minimized.
+Specifically, the formulation we have looked at is known as the ℓ1 norm soft margin SVM.
+In this problem we will consider an alternative method, known as the ℓ2 norm soft margin
+SVM. This new algorithm is given by the following optimization problem (notice that the
+slack penalties are now squared):
+minw,b,ξ 1
+2 ‖w‖2 + C
+2
+∑m
+i=1 ξ2
+i
+s.t. y(i)(wT x(i) + b) ≥ 1 − ξi, i = 1, . . . , m .
+CS229 Problem Set #2 2
+(a) Notice that we have dropped the ξi ≥ 0 constraint in the ℓ2 problem. Show that these
+non-negativity constraints can be removed. That is, show that the optimal value of
+the objective will be the same whether or not these constraints are present.
+(b) What is the Lagrangian of the ℓ2 soft margin SVM optimization problem?
+(c) Minimize the Lagrangian with respect to w, b, and ξ by taking the following gradients:
+∇wL, ∂L
+∂b , and ∇ξ L, and then setting them equal to 0. Here, ξ = [ξ1, ξ2, . . . , ξm]T .
+(d) What is the dual of the ℓ2 soft margin SVM optimization problem?
+3. SVM with Gaussian kernel
+Consider the task of training a support vector machine using the Gaussian kernel K(x, z) =
+exp(−‖x − z‖2/τ 2). We will show that as long as there are no two identical points in the
+training set, we can always find a value for the bandwidth parameter τ such that the SVM
+achieves zero training error.
+(a) Recall from class that the decision function learned by the support vector machine
+can be written as
+f (x) =
+m∑
+i=1
+αiy(i)K(x(i), x) + b.
+Assume that the training data {(x(1), y(1)), . . . , (x(m), y(m))} consists of points which
+are separated by at least a distance of ǫ; that is, ||x(j) − x(i)|| ≥ ǫ for any i 6 = j.
+Find values for the set of parameters {α1, . . . , αm, b} and Gaussian kernel width τ
+such that x(i) is correctly classified, for all i = 1, . . . , m. [Hint: Let αi = 1 for all i
+and b = 0. Now notice that for y ∈ {−1, +1} the prediction on x(i) will be correct if
+|f (x(i)) − y(i)| < 1, so find a value of τ that satisfies this inequality for all i.]
+(b) Suppose we run a SVM with slack variables using the parameter τ you found in part
+(a). Will the resulting classifier necessarily obtain zero training error? Why or why
+not? A short explanation (without proof) will suffice.
+(c) Suppose we run the SMO algorithm to train an SVM with slack variables, under
+the conditions stated above, using the value of τ you picked in the previous part,
+and using some arbitrary value of C (which you do not know beforehand). Will this
+necessarily result in a classifier that achieve zero training error? Why or why not?
+Again, a short explanation is sufficient.
+4. Naive Bayes and SVMs for Spam Classification
+In this question you’ll look into the Naive Bayes and Support Vector Machine algorithms
+for a spam classification problem. However, instead of implementing the algorithms your-
+self, you’ll use a freely available machine learning library. There are many such libraries
+available, with different strengths and weaknesses, but for this problem you’ll use the
+WEKA machine learning package, available at http://www.cs.waikato.ac.nz/ml/weka/.
+WEKA implements many standard machine learning algorithms, is written in Java, and
+has both a GUI and a command line interface. It is not the best library for very large-scale
+data sets, but it is very nice for playing around with many different algorithms on medium
+size problems.
+You can download and install WEKA by following the instructions given on the website
+above. To use it from the command line, you first need to install a java runtime environ-
+ment, then add the weka.jar file to your CLASSPATH environment variable. Finally, you
+CS229 Problem Set #2 3
+can call WEKA using the command:
+java <classifier> -t <training file> -T <test file>
+For example, to run the Naive Bayes classifier (using the multinomial event model) on our
+provided spam data set by running the command:
+java weka.classifiers.bayes.NaiveBayesMultinomial -t spam train 1000.arff -T spam test.arff
+The spam classification dataset in the q4/ directory was provided courtesy of Christian
+Shelton (cshelton@cs.ucr.edu). Each example corresponds to a particular email, and each
+feature correspondes to a particular word. For privacy reasons we have removed the actual
+words themselves from the data set, and instead label the features generically as f1, f2, etc.
+However, the data set is from a real spam classification task, so the results demonstrate the
+performance of these algorithms on a real-world problem. The q4/ directory actually con-
+tains several different training files, named spam train 50.arff, spam train 100.arff,
+etc (the “.arff” format is the default format by WEKA), each containing the corresponding
+number of training examples. There is also a single test set spam test.arff, which is a
+hold out set used for evaluating the classifier’s performance.
+(a) Run the weka.classifiers.bayes.NaiveBayesMultinomial classifier on the dataset
+and report the resulting error rates. Evaluate the performance of the classifier using
+each of the different training files (but each time using the same test file, spam test.arff).
+Plot the error rate of the classifier versus the number of training examples.
+(b) Repeat the previous part, but using the weka.classifiers.functions.SMO classifier,
+which implements the SMO algorithm to train an SVM. How does the performance
+of the SVM compare to that of Naive Bayes?
+5. Uniform convergence
+In class we proved that for any finite set of hypotheses H = {h1, . . . , hk}, if we pick the
+hypothesis ˆh that minimizes the training error on a set of m examples, then with probability
+at least (1 − δ),
+ε(ˆh) ≤
+(
+min
+i ε(hi)
+)
++ 2
+√ 1
+2m log 2k
+δ ,
+where ε(hi) is the generalization error of hypothesis hi. Now consider a special case (often
+called the realizable case) where we know, a priori, that there is some hypothesis in our
+class H that achieves zero error on the distribution from which the data is drawn. Then
+we could obviously just use the above bound with mini ε(hi) = 0; however, we can prove a
+better bound than this.
+(a) Consider a learning algorithm which, after looking at m training examples, chooses
+some hypothesis ˆh ∈ H that makes zero mistakes on this training data. (By our
+assumption, there is at least one such hypothesis, possibly more.) Show that with
+probability 1 − δ
+ε(ˆh) ≤ 1
+m log k
+δ .
+Notice that since we do not have a square root here, this bound is much tighter. [Hint:
+Consider the probability that a hypothesis with generalization error greater than γ
+makes no mistakes on the training data. Instead of the Hoeffding bound, you might
+also find the following inequality useful: (1 − γ)m ≤ e−γm.]
+CS229 Problem Set #2 4
+(b) Rewrite the above bound as a sample complexity bound, i.e., in the form: for fixed
+δ and γ, for ε(ˆh) ≤ γ to hold with probability at least (1 − δ), it suffices that m ≥
+f (k, γ, δ) (i.e., f (·) is some function of k, γ, and δ).
+
+---
+CS229 Problem Set #1 1
+CS 229, Public Course
+Problem Set #1: Supervised Learning
+1. Newton’s method for computing least squares
+In this problem, we will prove that if we use Newton’s method solve the least squares
+optimization problem, then we only need one iteration to converge to θ∗.
+(a) Find the Hessian of the cost function J(θ) = 1
+2
+∑m
+i=1(θT x(i) − y(i))2.
+(b) Show that the first iteration of Newton’s method gives us θ⋆ = (XT X)−1XT ~y, the
+solution to our least squares problem.
+2. Locally-weighted logistic regression
+In this problem you will implement a locally-weighted version of logistic regression, where
+we weight different training examples differently according to the query point. The locally-
+weighted logistic regression problem is to maximize
+ℓ(θ) = − λ
+2 θT θ +
+m∑
+i=1
+w(i) [
+y(i) log hθ (x(i)) + (1 − y(i)) log(1 − hθ (x(i)))
+]
+.
+The − λ
+2 θT θ here is what is known as a regularization parameter, which will be discussed
+in a future lecture, but which we include here because it is needed for Newton’s method to
+perform well on this task. For the entirety of this problem you can use the value λ = 0.0001.
+Using this definition, the gradient of ℓ(θ) is given by
+∇θ ℓ(θ) = XT z − λθ
+where z ∈ Rm is defined by
+zi = w(i)(y(i) − hθ (x(i)))
+and the Hessian is given by
+H = XT DX − λI
+where D ∈ Rm×m is a diagonal matrix with
+Dii = −w(i)hθ (x(i))(1 − hθ (x(i)))
+For the sake of this problem you can just use the above formulas, but you should try to
+derive these results for yourself as well.
+Given a query point x, we choose compute the weights
+w(i) = exp
+(
+− ||x − x(i)||2
+2τ 2
+)
+.
+Much like the locally weighted linear regression that was discussed in class, this weighting
+scheme gives more when the “nearby” points when predicting the class of a new example.
+CS229 Problem Set #1 2
+(a) Implement the Newton-Raphson algorithm for optimizing ℓ(θ) for a new query point
+x, and use this to predict the class of x.
+The q2/ directory contains data and code for this problem. You should implement
+the y = lwlr(X train, y train, x, tau) function in the lwlr.m file. This func-
+tion takes as input the training set (the X train and y train matrices, in the form
+described in the class notes), a new query point x and the weight bandwitdh tau.
+Given this input the function should 1) compute weights w(i) for each training exam-
+ple, using the formula above, 2) maximize ℓ(θ) using Newton’s method, and finally 3)
+output y = 1{hθ (x) > 0.5} as the prediction.
+We provide two additional functions that might help. The [X train, y train] =
+load data; function will load the matrices from files in the data/ folder. The func-
+tion plot lwlr(X train, y train, tau, resolution) will plot the resulting clas-
+sifier (assuming you have properly implemented lwlr.m). This function evaluates the
+locally weighted logistic regression classifier over a large grid of points and plots the
+resulting prediction as blue (predicting y = 0) or red (predicting y = 1). Depending
+on how fast your lwlr function is, creating the plot might take some time, so we
+recommend debugging your code with resolution = 50; and later increase it to at
+least 200 to get a better idea of the decision boundary.
+(b) Evaluate the system with a variety of different bandwidth parameters τ . In particular,
+try τ = 0.01, 0.050.1, 0.51.0, 5.0. How does the classification boundary change when
+varying this parameter? Can you predict what the decision boundary of ordinary
+(unweighted) logistic regression would look like?
+3. Multivariate least squares
+So far in class, we have only considered cases where our target variable y is a scalar value.
+Suppose that instead of trying to predict a single output, we have a training set with
+multiple outputs for each example:
+{(x(i), y(i)), i = 1, . . . , m}, x(i) ∈ Rn, y(i) ∈ Rp.
+Thus for each training example, y(i) is vector-valued, with p entries. We wish to use a linear
+model to predict the outputs, as in least squares, by specifying the parameter matrix Θ in
+y = ΘT x,
+where Θ ∈ Rn×p.
+(a) The cost function for this case is
+J(Θ) = 1
+2
+m∑
+i=1
+p∑
+j=1
+(
+(ΘT x(i))j − y(i)
+j
+)2
+.
+Write J(Θ) in matrix-vector notation (i.e., without using any summations). [Hint:
+Start with the m × n design matrix
+X =
+
+
+
+
+
+— (x(1))T —
+— (x(2))T —
+...
+— (x(m))T —
+
+
+
+
+
+CS229 Problem Set #1 3
+and the m × p target matrix
+Y =
+
+
+
+
+
+— (y(1))T —
+— (y(2))T —
+...
+— (y(m))T —
+
+
+
+
+
+and then work out how to express J(Θ) in terms of these matrices.]
+(b) Find the closed form solution for Θ which minimizes J(Θ). This is the equivalent to
+the normal equations for the multivariate case.
+(c) Suppose instead of considering the multivariate vectors y(i) all at once, we instead
+compute each variable y(i)
+j separately for each j = 1, . . . , p. In this case, we have a p
+individual linear models, of the form
+y(i)
+j = θT
+j x(i), j = 1, . . . , p.
+(So here, each θj ∈ Rn). How do the parameters from these p independent least
+squares problems compare to the multivariate solution?
+4. Naive Bayes
+In this problem, we look at maximum likelihood parameter estimation using the naive
+Bayes assumption. Here, the input features xj , j = 1, . . . , n to our model are discrete,
+binary-valued variables, so xj ∈ {0, 1}. We call x = [x1 x2 · · · xn]T to be the input vector.
+For each training example, our output targets are a single binary-value y ∈ {0, 1}. Our
+model is then parameterized by φj|y=0 = p(xj = 1|y = 0), φj|y=1 = p(xj = 1|y = 1), and
+φy = p(y = 1). We model the joint distribution of (x, y) according to
+p(y) = (φy )y (1 − φy )1−y
+p(x|y = 0) =
+n∏
+j=1
+p(xj |y = 0)
+=
+n∏
+j=1
+(φj|y=0)xj (1 − φj|y=0)1−xj
+p(x|y = 1) =
+n∏
+j=1
+p(xj |y = 1)
+=
+n∏
+j=1
+(φj|y=1)xj (1 − φj|y=1)1−xj
+(a) Find the joint likelihood function ℓ(ϕ) = log ∏m
+i=1 p(x(i), y(i); ϕ) in terms of the
+model parameters given above. Here, ϕ represents the entire set of parameters
+{φy , φj|y=0, φj|y=1, j = 1, . . . , n}.
+(b) Show that the parameters which maximize the likelihood function are the same as
+CS229 Problem Set #1 4
+those given in the lecture notes; i.e., that
+φj|y=0 =
+∑m
+i=1 1{x(i)
+j = 1 ∧ y(i) = 0}
+∑m
+i=1 1{y(i) = 0}
+φj|y=1 =
+∑m
+i=1 1{x(i)
+j = 1 ∧ y(i) = 1}
+∑m
+i=1 1{y(i) = 1}
+φy =
+∑m
+i=1 1{y(i) = 1}
+m .
+(c) Consider making a prediction on some new data point x using the most likely class
+estimate generated by the naive Bayes algorithm. Show that the hypothesis returned
+by naive Bayes is a linear classifier—i.e., if p(y = 0|x) and p(y = 1|x) are the class
+probabilities returned by naive Bayes, show that there exists some θ ∈ Rn+1 such
+that
+p(y = 1|x) ≥ p(y = 0|x) if and only if θT
+[ 1
+x
+]
+≥ 0.
+(Assume θ0 is an intercept term.)
+5. Exponential family and the geometric distribution
+(a) Consider the geometric distribution parameterized by φ:
+p(y; φ) = (1 − φ)y−1φ, y = 1, 2, 3, . . . .
+Show that the geometric distribution is in the exponential family, and give b(y), η,
+T (y), and a(η).
+(b) Consider performing regression using a GLM model with a geometric response vari-
+able. What is the canonical response function for the family? You may use the fact
+that the mean of a geometric distribution is given by 1/φ.
+(c) For a training set {(x(i), y(i)); i = 1, . . . , m}, let the log-likelihood of an example
+be log p(y(i)|x(i); θ). By taking the derivative of the log-likelihood with respect to
+θj , derive the stochastic gradient ascent rule for learning using a GLM model with
+goemetric responses y and the canonical response function.
+-----
+
 
 
