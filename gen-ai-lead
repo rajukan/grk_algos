@@ -1,0 +1,171 @@
+How should I prepare for a Lead Gen AI engineer use below topics as a general guide
+langgraph, multi agent orchestration, opensdk,
+llm as judge,chatbot,
+RAG evals
+Agent evals
+LangSmith/Ragas/DeepEval
+Prompt optimization
+Feedback pipelines
+AI monitoring/observability
+Pydantic
+calling awsbedrock models, databricks,sagemaker,
+Langchain Semantic Cache for llm
+RAG evaluation + adaptive fine-tuning loop
+Fine Tuning
+Guardrail-AI python framework with several validators like PII, prompt injection, hallucination prevention etc.
+hexagonal architecture principals in AI Agent Development
+LlamaIndex
+Embeddings and Vector Management
+GAI Orchestration Layer
+GAI Grounding Layer
+Response Filtering
+Orchestration Frameworks
+Semantic Kernel
+ . Just analyze and finally come up with a topic . Feel free to update the areas once i provide some real interview questions
+
+I'd expect four major areas:
+Area 1 — Python & AI Engineering 15%
+
+Python:
+Some examples as a reference
+ Extract First and Last Number from Each Line and Sum the Results
+Question 1:
+You are given multiple lines of text. Each line contains a mixture of letters and numbers. A number can appear either as a digit (1, 2, ..., 9) or as a word (one, two, ..., nine).
+For each line:
+Find the first number.
+Find the last number.
+Convert both to digits.
+Form a two-digit number by concatenating them.
+Sum these values across all lines.
+Example:
+abcone2threexyz
+
+First number = one (1)
+Last number = three (3)
+Value = 13
+Note: Number words may overlap (e.g., twone, oneight).
+
+Question 2:
+Given:
+Trades:
+[
+ {"trader_id":1,"value":5000},
+ {"trader_id":2,"value":2000}
+]
+
+Traders:
+[
+ {"trader_id":1,"name":"Alice"},
+ {"trader_id":2,"name":"Bob"}
+]
+
+Return the top N traders ranked by total trade value.
+Calculate the total value traded by each trader.
+
+
+Question  3:
+Classic toll gate problem.Write a Python program that processes the toll gate records and determines the complete journeys made by vehicles.
+
+A journey starts when a vehicle passes an ENTRY gate and ends when it passes an EXIT gate. Vehicles may pass through one or more MAINROAD toll gates between the entry and exit points.
+
+For every completed journey:
+
+Identify the vehicle ID.
+Determine the entry gate and exit gate.
+Calculate the total travel time (exit_timestamp - entry_timestamp).
+List all toll gates crossed during the journey in chronological order.
+
+input: 90750.191 JOX304 250E ENTRY
+91081.684 JOX304 260E MAINROAD
+91082.101 THX138 110E ENTRY
+91483.251 JOX304 270E MAINROAD
+91873.920 THX138 120E MAINROAD
+91874.493 JOX304 280E EXIT
+.
+.
+91982.102 THX138 290E EXIT
+92301.302 THX138 300E ENTRY
+92371.302 THX138 310E EXIT
+
+
+--
+question on python 
+a=5
+b=a
+a=a+10
+print(a,b)
+ans:(15,5)
+b remains 5 because integers are immutable in Python.
+
+write a for loop in list comprehension
+
+f = lambda x: x + 5
+print(f([]))
+ans:throws error
+
+a = "alpha"
+b = "beta"
+print(a + b)
+
+class Apple:
+    print("Apple loaded")
+
+class Pear:
+    print("Pear loaded")
+
+class Fruit(Apple, Pear):
+    pass
+
+f = Fruit()
+
+what gets printed
+ans: 
+apple loaded
+pear loaded
+
+
+a = "one"
+b = "two"
+lst = [1, 2, 3]
+
+a, b = lst
+print(a, b)
+ans: 1,2
+If lst didn’t have exactly 2 elements, Python would throw a ValueError.
+
+----
+
+
+Area 2 — Agentic AI / LangGraph / Multi-Agent /  35%
+
+LangGraph → AgentSkills → multi-agent → tools → state → memory → routing → MCP/agent interfaces → Semantic Kernel → LangChain → LlamaIndex
+
+Area 3 — RAG + Evaluation + Feedback + Prompt Optimization 30%
+
+RAG → embeddings → vector DB → RAG evaluation → LLM rubric → Agent evaluation → Ragas → DeepEval → prompt optimization → feedback → adaptive fine-tuning
+
+Area 4 — Production AI Architecture / Guardrails / Observability 20%
+
+Hexagonal architecture → GAI orchestration → grounding → guardrails → response filtering → semantic cache → prompt-to-SQL → observability → LangSmith → security → scalability → cost → reliability
+
+---
+
+Few more questions as a reference:
+ Explain how retrieval augmented generation works and when it is preferable to fine-tune.
+Describe how you would evaluate hallucinations in a financial domain model (https://olamip.org/how-olamip-helps-ai-systems-reduce-and-prevent-hallucinations/)
+Walk through how you would design a secure LLM pipeline for customer data.
+Compare embeddings-based search with keyword search for enterprise use cases.
+Explain model drift and how you would monitor it in production.
+Programmatic Questions
+Write a function that chunks documents and generates embeddings for each chunk.
+Given an API response from an LLM, parse and validate structured JSON output.
+Implement a simple RAG flow using a vector store and a model endpoint.
+Optimize a prompt to reduce hallucinations using a few-shot examples.
+Write code to evaluate model responses using a scoring rubric. 
+-------------------
+
+
+Rotate Randomly and generate one question at a time from random Area. Keep it interactive,you play interviewer and probe my answer the way these interviewers do.
+
+
+
