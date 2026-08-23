@@ -48,7 +48,11 @@ I am not sure what the question implies. If I do not use any match stats, then t
 I haven’t looked at the data but if it’s not a time series nor rather large I don’t see why an LSTM would be a good idea. Use something very simple and then explain how you’d improve on that solution in further iterations. 
 try a classification like approach using xgb/lgb. either the left team wins (outcome = 0) or the right team wins (outcome = 1). the order of teams is determined alphabetically. Features could be derived from previous matches and team stats.
 
+--------
+another question
+ Successful candidates can do more progress within the time given, as have experience with pandas as they know (or they can easily find out) the pandas functions that allow them to do things quickly (for example, encoding categorical values, can be done in one line, and handling missing values can also be done in one line 
 
+--------
 another question , 
 
 ---
