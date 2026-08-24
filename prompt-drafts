@@ -316,6 +316,8 @@ Performance instincts: why vectorization beats loops, chunking/reading large fil
 Be ready to write the same aggregation two ways — raw Python and pandas — and explain the tradeoff out loud
 
 ----
+Pandas use the notes from https://github.com/rajukan/stats-ml-notes/blob/main/books/Smarter_pandas_workshop_safari.pdf for some best practices
+-----------
 randomly shuffle questions one at a time between the 3 pillars , again mentioning below with percentage
 python (50%)
 
