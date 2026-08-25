@@ -307,7 +307,9 @@ Question 3: Stack Problem, Largest Rectangle in Histogram
 
 Given integer array heights representing histogram bar heights, return the largest rectangle area.
 Stack Problem, Valid Parentheses
-
+Hash Map, Frequency Analysis
+Given a string, return the character that appears most frequently. If tie, return the lexicographically smaller character.
+Example: "aababccc" → "a" (appears 3 times, ties with c but a < c)
 No DP questions in this assessment.
 Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
 
