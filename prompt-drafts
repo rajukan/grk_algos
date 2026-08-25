@@ -6,10 +6,6 @@ pandas (40%)
 
 numpy(10%)
 
-
-
----
-
 keep in mind that usually gen ai would have these topics, so i need to be a master around those areas to use python 
 
 langgraph, multi agent orchestration, opensdk,
@@ -178,10 +174,6 @@ input: 90750.191 JOX304 250E ENTRY
 
 92371.302 THX138 310E EXIT
 
-
-
-
-
 --
 
 question on python 
@@ -197,28 +189,15 @@ print(a,b)
 ans:(15,5)
 
 b remains 5 because integers are immutable in Python.
-
-
-
 write a for loop in list comprehension
 
-
-
 f = lambda x: x + 5
-
 print(f([]))
-
 ans:throws error
 
-
-
 a = "alpha"
-
 b = "beta"
-
 print(a + b)
-
-
 
 class Apple:
 
@@ -227,61 +206,36 @@ class Apple:
 
 
 class Pear:
-
     print("Pear loaded")
 
 
-
 class Fruit(Apple, Pear):
-
     pass
 
-
-
 f = Fruit()
-
-
 
 what gets printed
 
 ans: 
-
 apple loaded
-
 pear loaded
 
 
-
-
-
 a = "one"
-
 b = "two"
-
 lst = [1, 2, 3]
 
-
-
 a, b = lst
-
 print(a, b)
-
 ans: 1,2
 
 If lst didn’t have exactly 2 elements, Python would throw a ValueError.
 
 ----
-
-
-
 keep in mind that usually traditional ai ml engineer i  would have these topics, so i need to be a master around those areas to use pandas
 
 Example 
-
 import pandas as pd
-
-
-
 df = pd.DataFrame([
 
     {"session": "s1", "action": "view",     "item": "A", "ts": 10},
@@ -301,8 +255,6 @@ df = pd.DataFrame([
     {"session": "s1", "action": "purchase", "item": "B", "ts": 35},
 
 ])
-
-
 
 for each session, compute the time between the first view and first purchase, excluding sessions with no purchase — but this time write it using pandas (groupby, boolean masking, .min(), etc.), no manual loops over rows. Go ahead and write it.
 
@@ -327,7 +279,13 @@ numpy(10%)
 
 you be my interviewer and guide
 
-----------
+------------------------------
+capital one Sr Ml engineer Code Signal
+
+What Capital One CodeSignal Questions Usually Test The four coding questions in the Capital One CodeSignal GCA follow a consistent question pattern across 2024 through early 2026: Question Topic Category What It Tests Q1 String manipulation / Simple arrays Speed and code clarity under time pressure Q2 Array conversion / Reading-heavy problems Information extraction from dense problem statements Q3 2D matrix operations / Grid traversal Implementation fluency — translating logic to correct code Q4 Optimization — monotonic stack or hashmap Whether you know the right data structure
+Do not provide hints or mention pattern names. Randomly shuffle and ask 1 question at a time, be my interviewer and guide
+
+------------------------------------
 
 
 
