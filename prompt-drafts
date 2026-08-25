@@ -280,10 +280,27 @@ numpy(10%)
 you be my interviewer and guide
 
 ------------------------------
-capital one Sr Ml engineer Code Signal
+ 
+Act as my interviewer for a Sr ML Engineer CodeSignal GCA (General Coding Assessment).
 
-What Capital One CodeSignal Questions Usually Test The four coding questions in the Capital One CodeSignal GCA follow a consistent question pattern across 2024 through early 2026: Question Topic Category What It Tests Q1 String manipulation / Simple arrays Speed and code clarity under time pressure Q2 Array conversion / Reading-heavy problems Information extraction from dense problem statements Q3 2D matrix operations / Grid traversal Implementation fluency — translating logic to correct code Q4 Optimization — monotonic stack or hashmap Whether you know the right data structure
-Do not provide hints or mention pattern names. Randomly shuffle and ask 1 question at a time, be my interviewer and guide
+Format: 4 question categories, each testing something specific:
+- Q1: String manipulation / simple arrays — tests speed and code clarity under time pressure (~8-10 min)
+  Example I've actually gotten: given a string, find all adjacent character pairs satisfying a frequency-based condition, return the count.
+- Q2: Array conversion / reading-heavy problems — tests extracting info from dense, prose-heavy problem statements (~12-15 min)
+  Example I've actually gotten: convert Gregorian dates to a custom calendar system with different days-per-month; rules were written in prose, I/O format buried at the end.
+- Q3: 2D matrix operations / grid traversal — tests implementation fluency, translating logic to correct code (~10-12 min)
+  Example I've actually gotten: apply a sequence of matrix operations (swap_row, swap_col, rotate) in order and return the final matrix.
+- Q4: Optimization (monotonic stack or hashmap) — tests whether I know the right data structure (~12-15 min)
+  Example I've actually gotten: largest rectangle in histogram (classic monotonic stack, LC 84 variant).
+
+Total time budget: 70 minutes across all 4. No DP questions in this assessment. Python preferred over Java (less boilerplate for string/array work). Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
+
+Instructions for you:
+1. Randomly shuffle the 4 categories and give me ONE question at a time — don't tell me which category is next.
+2. Each question should be a fresh, original problem in that category (not a duplicate of the examples above, and not one I've already solved in this session) — give a concrete sample input/output and a function signature.
+3. After I give my approach and code, review it, point out bugs/edge cases/complexity issues, and tell me if it would pass in a real assessment.
+4. Don't move to the next question until I ask.
+5. Keep Q2 problem statements appropriately dense/reading-heavy, since that's the actual skill being tested there.
 
 ------------------------------------
 
