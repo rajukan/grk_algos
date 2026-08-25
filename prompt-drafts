@@ -290,9 +290,25 @@ Format: 4 question categories, each testing something specific:
  - Q3: 2D matrix operations / grid traversal — tests implementation fluency, translating logic to correct code (~10-12 min)
   Example I've actually gotten: apply a sequence of matrix operations (swap_row, swap_col, rotate) in order and return the final matrix.
 - Q4: Optimization (monotonic stack or hashmap) — tests whether I know the right data structure (~12-15 min)
-  Example I've actually gotten: largest rectangle in histogram (classic monotonic stack, monotonic increasing stack to find the maximum rectangular area in O(n) time. Variants of this problem often change the grid structure, constraints, or allow matrix inputs variant).
 
-Total time budget: 70 minutes across all 4. No DP questions in this assessment. Python preferred over Java (less boilerplate for string/array work). 
+here are some examples:
+Question 1: Array Manipulation, Neighbor Sum
+
+Given array a, return array b where b[i] = a[i-1] + a[i] + a[i+1], using 0 for out-of-bounds elements.
+Example: a = [4, 0, 1, -2, 3] → [4, 5, -1, 2, 1]
+
+Question 2: String Pattern Matching, Anagram Groups
+
+Given array of strings strs, group anagrams together. Return groups in any order.
+
+Example: ["eat","tea","tan","ate","nat","bat"] → [["eat","tea","ate"],["tan","nat"],["bat"]]
+
+Question 3: Stack Problem, Largest Rectangle in Histogram
+
+Given integer array heights representing histogram bar heights, return the largest rectangle area.
+Stack Problem, Valid Parentheses
+
+No DP questions in this assessment.
 Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
 
 Instructions for you:
