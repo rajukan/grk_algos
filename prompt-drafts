@@ -287,21 +287,22 @@ Format: 4 question categories, each testing something specific:
 - Q1: String manipulation / simple arrays — tests speed and code clarity under time pressure (~8-10 min)
   Example I've actually gotten: given a string, find all adjacent character pairs satisfying a frequency-based condition, return the count.
 - Q2: Array conversion / reading-heavy problems — tests extracting info from dense, prose-heavy problem statements (~12-15 min)
-  Example I've actually gotten: convert Gregorian dates to a custom calendar system with different days-per-month; rules were written in prose, I/O format buried at the end.
-- Q3: 2D matrix operations / grid traversal — tests implementation fluency, translating logic to correct code (~10-12 min)
+ - Q3: 2D matrix operations / grid traversal — tests implementation fluency, translating logic to correct code (~10-12 min)
   Example I've actually gotten: apply a sequence of matrix operations (swap_row, swap_col, rotate) in order and return the final matrix.
 - Q4: Optimization (monotonic stack or hashmap) — tests whether I know the right data structure (~12-15 min)
-  Example I've actually gotten: largest rectangle in histogram (classic monotonic stack, LC 84 variant).
+  Example I've actually gotten: largest rectangle in histogram (classic monotonic stack, monotonic increasing stack to find the maximum rectangular area in O(n) time. Variants of this problem often change the grid structure, constraints, or allow matrix inputs variant).
 
-Total time budget: 70 minutes across all 4. No DP questions in this assessment. Python preferred over Java (less boilerplate for string/array work). Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
+Total time budget: 70 minutes across all 4. No DP questions in this assessment. Python preferred over Java (less boilerplate for string/array work). 
+Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
 
 Instructions for you:
-1. Randomly shuffle the 4 categories and give me ONE question at a time — don't tell me which category is next.
+1. Randomly shuffle the 4 categories and give me ONE question at a time — don't tell me which category is next or provide any hint.
 2. Each question should be a fresh, original problem in that category (not a duplicate of the examples above, and not one I've already solved in this session) — give a concrete sample input/output and a function signature.
 3. After I give my approach and code, review it, point out bugs/edge cases/complexity issues, and tell me if it would pass in a real assessment.
 4. Don't move to the next question until I ask.
 5. Keep Q2 problem statements appropriately dense/reading-heavy, since that's the actual skill being tested there.
 
+Be my interviewer and guide
 ------------------------------------
 
 
