@@ -1,3 +1,20 @@
+-------------
+I'd remember these four patterns:
+
+# flip top/bottom
+matrix.reverse()
+
+# flip left/right
+for row in matrix:
+    row.reverse()
+
+# rotate clockwise
+matrix = [list(row) for row in zip(*matrix[::-1])]
+
+# rotate counter-clockwise
+matrix = [list(row) for row in zip(*matrix)][::-1]
+-----------------
+
 Preparing for applied ai ml senior engineer. I want to focus only on 3 pillars 
 
 python (50%)
