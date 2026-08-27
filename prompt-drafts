@@ -328,6 +328,14 @@ Hash Map, Frequency Analysis
 Given a string, return the character that appears most frequently. If tie, return the lexicographically smaller character.
 Example: "aababccc" → "a" (appears 3 times, ties with c but a < c)
 No DP questions in this assessment.
+
+
+Question 1 is easy take 5-10 min
+Question 2 is medium problem solved using combination of array and hash map.
+3 Matrix question + sliding window combination.
+
+
+
 Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
 
 Instructions for you:
