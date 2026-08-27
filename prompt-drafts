@@ -13,6 +13,18 @@ matrix = [list(row) for row in zip(*matrix[::-1])]
 
 # rotate counter-clockwise
 matrix = [list(row) for row in zip(*matrix)][::-1]
+
+        if op == "TRANSPOSE":
+            matrix = [list(row) for row in zip(*matrix)]
+        elif op == "ROTATE_90":
+            matrix = [list(row) for row in zip(*matrix[::-1])]
+        elif op == "FLIP_HORIZONTAL":
+            matrix = [row[::-1] for row in matrix]
+        elif op == "FLIP_VERTICAL":
+            matrix = matrix[::-1]
+        elif op.startswith("ADD"):
+            val = int(op.split()[1])
+            matrix = [[cell + val for cell in row] for row in matrix]
 -----------------
 
 Preparing for applied ai ml senior engineer. I want to focus only on 3 pillars 
