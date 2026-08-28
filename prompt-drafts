@@ -30,6 +30,22 @@ def swap_rows(matrix, r1, r2):
         elif op.startswith("ADD"):
             val = int(op.split()[1])
             matrix = [[cell + val for cell in row] for row in matrix]
+
+def apply_operations(matrix, operations):
+    for op in operations:
+        if op[0] == "swap_row":
+            r1, r2 = op[1], op[2]
+            matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
+        elif op[0] == "swap_col":
+            c1, c2 = op[1], op[2]
+            for row in matrix:
+                row[c1], row[c2] = row[c2], row[c1]
+        elif op[0] == "rotate_cw":
+            matrix = [list(row) for row in zip(*matrix[::-1])]
+        elif op[0] == "flip_h":
+            for row in matrix:
+                row.reverse()
+    return matrix
 -----------------
 
 Preparing for applied ai ml senior engineer. I want to focus only on 3 pillars 
