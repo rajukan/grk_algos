@@ -14,6 +14,11 @@ matrix = [list(row) for row in zip(*matrix[::-1])]
 # rotate counter-clockwise
 matrix = [list(row) for row in zip(*matrix)][::-1]
 
+#swap
+def swap_rows(matrix, r1, r2):
+    matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
+    return matrix
+
         if op == "TRANSPOSE":
             matrix = [list(row) for row in zip(*matrix)]
         elif op == "ROTATE_90":
