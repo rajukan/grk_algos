@@ -21,17 +21,17 @@ Output: 1
 def minSubArrayLen(nums: list[int],target: int) -> int:
     left = 0
     curr_sum = 0
-    max_len = float('inf')
+    min_len = float('inf')
 
     for right in range(len(nums)):
         curr_sum += nums[right]
 
         while curr_sum >= target:
-            max_len = min(max_len, right - left + 1)
+            min_len = min(min_len, right - left + 1)
             curr_sum -= nums[left]
             left += 1
 
-    return 0 if max_len == float('inf') else max_len
+    return 0 if min_len == float('inf') else min_len
 
 
 '''
@@ -76,8 +76,32 @@ def findMaxAverage(nums: list[int], k: int) -> float:
     print(f"{best/k}, {best=}")
 
 
+
+'''
+You are given an array of integers nums and an integer k.
+Return the maximum sum of any contiguous subarray containing exactly k elements.
+The array may contain negative numbers.
+nums = [4, -2, 7, 1, -5, 3]
+k = 3
+output 9
+Contiguous + exactly k elements → fixed-size sliding window
+'''
+def max_fixed_window_sum(nums: list[int], k: int) -> int:
+    window_sum = sum(nums[:k])
+    max_sum = window_sum
+
+    for i in range(k, len(nums)):
+        window_sum += nums[i]
+        window_sum -= nums[i - k]
+
+        max_sum = max(max_sum, window_sum)
+
+    return max_sum
+
+
 if __name__ == "__main__":
     arr=[1,1]
     # longest_substr(arr)
     # print(minSubArrayLen([1,2,3,5,6], 7))
-    findMaxAverage([1,12,-5,-6,50,3,0,0,0,1,10,0,48],4)
+    # findMaxAverage([1,12,-5,-6,50,3,0,0,0,1,10,0,48],4)
+    print(max_fixed_window_sum([4, -2, 7, 1, -5, 3],3))
