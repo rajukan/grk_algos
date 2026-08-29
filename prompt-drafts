@@ -51,262 +51,138 @@ def apply_operations(matrix, operations):
 Preparing for applied ai ml senior engineer. I want to focus only on 3 pillars 
 
 python (50%)
-
 pandas (40%)
-
 numpy(10%)
 
 keep in mind that usually gen ai would have these topics, so i need to be a master around those areas to use python 
 
 langgraph, multi agent orchestration, opensdk,
-
 llm as judge,chatbot,
-
 RAG evals
-
 Agent evals
-
 LangSmith/Ragas/DeepEval
-
 Prompt optimization
-
 Feedback pipelines
-
 AI monitoring/observability
-
 Pydantic
-
 calling awsbedrock models, databricks,sagemaker,
-
 Langchain Semantic Cache for llm
-
 RAG evaluation + adaptive fine-tuning loop
-
 Fine Tuning
-
 Guardrail-AI python framework with several validators like PII, prompt injection, hallucination prevention etc.
-
 hexagonal architecture principals in AI Agent Development
-
 LlamaIndex
-
 Embeddings and Vector Management
-
 GAI Orchestration Layer
-
 GAI Grounding Layer
-
 Response Filtering
-
 Orchestration Frameworks
-
 Semantic Kernel--
-
-
 
 Python:
 
 Some examples as a reference
-
- Extract First and Last Number from Each Line and Sum the Results
-
+Extract First and Last Number from Each Line and Sum the Results
 Question 1:
-
 You are given multiple lines of text. Each line contains a mixture of letters and numbers. A number can appear either as a digit (1, 2, ..., 9) or as a word (one, two, ..., nine).
-
 For each line:
-
 Find the first number.
-
 Find the last number.
-
 Convert both to digits.
-
 Form a two-digit number by concatenating them.
-
 Sum these values across all lines.
-
 Example:
-
 abcone2threexyz
-
-
-
 First number = one (1)
-
 Last number = three (3)
-
 Value = 13
-
 Note: Number words may overlap (e.g., twone, oneight).
 
-
-
 Question 2:
-
 Given:
-
 Trades:
-
 [
-
- {"trader_id":1,"value":5000},
-
- {"trader_id":2,"value":2000}
-
+{"trader_id":1,"value":5000},
+{"trader_id":2,"value":2000}
 ]
-
-
-
 Traders:
-
 [
-
- {"trader_id":1,"name":"Alice"},
-
- {"trader_id":2,"name":"Bob"}
-
+{"trader_id":1,"name":"Alice"},
+{"trader_id":2,"name":"Bob"}
 ]
-
-
-
 Return the top N traders ranked by total trade value.
-
 Calculate the total value traded by each trader.
 
-
-
-
-
 Question  3:
-
 Classic toll gate problem.Write a Python program that processes the toll gate records and determines the complete journeys made by vehicles.
-
-
-
 A journey starts when a vehicle passes an ENTRY gate and ends when it passes an EXIT gate. Vehicles may pass through one or more MAINROAD toll gates between the entry and exit points.
-
-
-
 For every completed journey:
-
-
-
 Identify the vehicle ID.
-
 Determine the entry gate and exit gate.
-
 Calculate the total travel time (exit_timestamp - entry_timestamp).
-
 List all toll gates crossed during the journey in chronological order.
-
-
-
 input: 90750.191 JOX304 250E ENTRY
-
 91081.684 JOX304 260E MAINROAD
-
 91082.101 THX138 110E ENTRY
-
 91483.251 JOX304 270E MAINROAD
-
 91873.920 THX138 120E MAINROAD
-
 91874.493 JOX304 280E EXIT
-
 .
-
 .
-
 91982.102 THX138 290E EXIT
-
 92301.302 THX138 300E ENTRY
-
 92371.302 THX138 310E EXIT
 
 --
-
-question on python 
-
+question on python
 a=5
-
 b=a
-
 a=a+10
-
 print(a,b)
-
 ans:(15,5)
-
 b remains 5 because integers are immutable in Python.
 write a for loop in list comprehension
-
 f = lambda x: x + 5
 print(f([]))
 ans:throws error
-
 a = "alpha"
 b = "beta"
 print(a + b)
-
 class Apple:
-
-    print("Apple loaded")
-
-
-
+print("Apple loaded")
 class Pear:
-    print("Pear loaded")
-
-
+print("Pear loaded")
 class Fruit(Apple, Pear):
-    pass
-
+pass
 f = Fruit()
-
 what gets printed
-
-ans: 
+ans:
 apple loaded
 pear loaded
-
-
 a = "one"
 b = "two"
 lst = [1, 2, 3]
-
 a, b = lst
 print(a, b)
 ans: 1,2
-
 If lst didn’t have exactly 2 elements, Python would throw a ValueError.
+-----------------------------------------------------------------------
 
-----
 keep in mind that usually traditional ai ml engineer i  would have these topics, so i need to be a master around those areas to use pandas
-
-Example 
+Example
 import pandas as pd
 df = pd.DataFrame([
-
-    {"session": "s1", "action": "view",     "item": "A", "ts": 10},
-
-    {"session": "s1", "action": "view",     "item": "B", "ts": 15},
-
-    {"session": "s2", "action": "view",     "item": "A", "ts": 12},
-
-    {"session": "s1", "action": "cart",     "item": "B", "ts": 20},
-
-    {"session": "s2", "action": "cart",     "item": "A", "ts": 18},
-
-    {"session": "s1", "action": "view",     "item": "C", "ts": 25},
-
-    {"session": "s2", "action": "purchase", "item": "A", "ts": 30},
-
-    {"session": "s1", "action": "purchase", "item": "B", "ts": 35},
-
+{"session": "s1", "action": "view",     "item": "A", "ts": 10},
+{"session": "s1", "action": "view",     "item": "B", "ts": 15},
+{"session": "s2", "action": "view",     "item": "A", "ts": 12},
+{"session": "s1", "action": "cart",     "item": "B", "ts": 20},
+{"session": "s2", "action": "cart",     "item": "A", "ts": 18},
+{"session": "s1", "action": "view",     "item": "C", "ts": 25},
+{"session": "s2", "action": "purchase", "item": "A", "ts": 30},
+{"session": "s1", "action": "purchase", "item": "B", "ts": 35},
 ])
-
 for each session, compute the time between the first view and first purchase, excluding sessions with no purchase — but this time write it using pandas (groupby, boolean masking, .min(), etc.), no manual loops over rows. Go ahead and write it.
+
 
 -----
 Python and Pandas
