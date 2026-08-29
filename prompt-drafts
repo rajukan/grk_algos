@@ -54,33 +54,6 @@ python (50%)
 pandas (40%)
 numpy(10%)
 
-keep in mind that usually gen ai would have these topics, so i need to be a master around those areas to use python 
-
-langgraph, multi agent orchestration, opensdk,
-llm as judge,chatbot,
-RAG evals
-Agent evals
-LangSmith/Ragas/DeepEval
-Prompt optimization
-Feedback pipelines
-AI monitoring/observability
-Pydantic
-calling awsbedrock models, databricks,sagemaker,
-Langchain Semantic Cache for llm
-RAG evaluation + adaptive fine-tuning loop
-Fine Tuning
-Guardrail-AI python framework with several validators like PII, prompt injection, hallucination prevention etc.
-hexagonal architecture principals in AI Agent Development
-LlamaIndex
-Embeddings and Vector Management
-GAI Orchestration Layer
-GAI Grounding Layer
-Response Filtering
-Orchestration Frameworks
-Semantic Kernel--
-
-Python:
-
 Some examples as a reference
 Extract First and Last Number from Each Line and Sum the Results
 Question 1:
@@ -166,7 +139,6 @@ a, b = lst
 print(a, b)
 ans: 1,2
 If lst didn’t have exactly 2 elements, Python would throw a ValueError.
------------------------------------------------------------------------
 
 keep in mind that usually traditional ai ml engineer i  would have these topics, so i need to be a master around those areas to use pandas
 Example
@@ -182,7 +154,6 @@ df = pd.DataFrame([
 {"session": "s1", "action": "purchase", "item": "B", "ts": 35},
 ])
 for each session, compute the time between the first view and first purchase, excluding sessions with no purchase — but this time write it using pandas (groupby, boolean masking, .min(), etc.), no manual loops over rows. Go ahead and write it.
-
 
 -----
 Python and Pandas
