@@ -1,52 +1,3 @@
--------------
-I'd remember these four patterns:
-
-# flip top/bottom
-matrix.reverse()
-
-# flip left/right
-for row in matrix:
-    row.reverse()
-
-# rotate clockwise
-matrix = [list(row) for row in zip(*matrix[::-1])]
-
-# rotate counter-clockwise
-matrix = [list(row) for row in zip(*matrix)][::-1]
-
-#swap
-def swap_rows(matrix, r1, r2):
-    matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
-    return matrix
-
-        if op == "TRANSPOSE":
-            matrix = [list(row) for row in zip(*matrix)]
-        elif op == "ROTATE_90":
-            matrix = [list(row) for row in zip(*matrix[::-1])]
-        elif op == "FLIP_HORIZONTAL":
-            matrix = [row[::-1] for row in matrix]
-        elif op == "FLIP_VERTICAL":
-            matrix = matrix[::-1]
-        elif op.startswith("ADD"):
-            val = int(op.split()[1])
-            matrix = [[cell + val for cell in row] for row in matrix]
-
-def apply_operations(matrix, operations):
-    for op in operations:
-        if op[0] == "swap_row":
-            r1, r2 = op[1], op[2]
-            matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
-        elif op[0] == "swap_col":
-            c1, c2 = op[1], op[2]
-            for row in matrix:
-                row[c1], row[c2] = row[c2], row[c1]
-        elif op[0] == "rotate_cw":
-            matrix = [list(row) for row in zip(*matrix[::-1])]
-        elif op[0] == "flip_h":
-            for row in matrix:
-                row.reverse()
-    return matrix
------------------
 
 Preparing for applied ai ml senior engineer. I want to focus only on 3 pillars 
 
@@ -157,15 +108,13 @@ for each session, compute the time between the first view and first purchase, ex
 
 -----
 Python and Pandas
+Pandas use the notes from https://github.com/rajukan/stats-ml-notes/blob/main/books/Smarter_pandas_workshop_safari.pdf for some best practices
 
 Pure-Python data munging without pandas: string parsing, digit/char extraction, list/dict aggregation, zero-fill grouping — this is exactly what your last interview hit, so it stays priority #1
 Pandas core ops: groupby/agg, merge vs join vs concat, pivot_table, apply vs vectorized ops, multi-index handling
 Data cleaning: missing values (drop vs impute vs flag), duplicates, dtype coercion, outlier detection, categorical encoding
 Performance instincts: why vectorization beats loops, chunking/reading large files, memory footprint (dtype downcasting, category dtype)
-Be ready to write the same aggregation two ways — raw Python and pandas — and explain the tradeoff out loud
 
-----
-Pandas use the notes from https://github.com/rajukan/stats-ml-notes/blob/main/books/Smarter_pandas_workshop_safari.pdf for some best practices
 My goal is not to memorize pandas APIs. I want to develop senior-level instincts: knowing which operation to use, understanding what pandas is doing with indexes and data types, writing idiomatic/vectorized code, recognizing inefficient approaches, and being able to explain tradeoffs during an interview.
 Organize the learning priorities in this style:
 Python foundation for pandas: list/dict aggregation, comprehensions, lambda/functions, iteration, string parsing, data transformation, sorting, filtering, and understanding Python behavior — I need to be strong enough in pure Python to understand what pandas is replacing and when pandas is the better abstraction
@@ -218,8 +167,55 @@ Instructions for you:
 1. Randomly generate a fresh randomized variant from the pool of patterns one at a time — don't tell me which pattern is next or provide any hint.
 2. Be my interviewer and guide.
 
-------------------------------------
+-------------
+I'd remember these four patterns:
 
+# flip top/bottom
+matrix.reverse()
+
+# flip left/right
+for row in matrix:
+    row.reverse()
+
+# rotate clockwise
+matrix = [list(row) for row in zip(*matrix[::-1])]
+
+# rotate counter-clockwise
+matrix = [list(row) for row in zip(*matrix)][::-1]
+
+#swap
+def swap_rows(matrix, r1, r2):
+    matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
+    return matrix
+
+        if op == "TRANSPOSE":
+            matrix = [list(row) for row in zip(*matrix)]
+        elif op == "ROTATE_90":
+            matrix = [list(row) for row in zip(*matrix[::-1])]
+        elif op == "FLIP_HORIZONTAL":
+            matrix = [row[::-1] for row in matrix]
+        elif op == "FLIP_VERTICAL":
+            matrix = matrix[::-1]
+        elif op.startswith("ADD"):
+            val = int(op.split()[1])
+            matrix = [[cell + val for cell in row] for row in matrix]
+
+def apply_operations(matrix, operations):
+    for op in operations:
+        if op[0] == "swap_row":
+            r1, r2 = op[1], op[2]
+            matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
+        elif op[0] == "swap_col":
+            c1, c2 = op[1], op[2]
+            for row in matrix:
+                row[c1], row[c2] = row[c2], row[c1]
+        elif op[0] == "rotate_cw":
+            matrix = [list(row) for row in zip(*matrix[::-1])]
+        elif op[0] == "flip_h":
+            for row in matrix:
+                row.reverse()
+    return matrix
+-----------------
 
 
 
