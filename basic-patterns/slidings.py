@@ -56,26 +56,6 @@ def longest_substr(numlist):
         max_len=max(max_len,len(bucket))
     print(max_len)
 
-'''
-Given array nums and integer k, return the maximum average of any subarray of length k.
-Input: nums = [1,12,-5,-6,50,3], k = 4
-Output: 12.75000
-Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
-
-'''
-
-def findMaxAverage(nums: list[int], k: int) -> float:
-    curr_sum = sum(nums[:k])
-    best = curr_sum
-
-    for i in range(k, len(nums)):
-        curr_sum += nums[i]
-        curr_sum -= nums[i - k]
-        best = max(best, curr_sum)
-
-    print(f"{best/k}, {best=}")
-
-
 
 '''
 You are given an array of integers nums and an integer k.
@@ -97,6 +77,29 @@ def max_fixed_window_sum(nums: list[int], k: int) -> int:
         max_sum = max(max_sum, window_sum)
 
     return max_sum
+
+'''
+Given array nums and integer k, return the maximum average of any subarray of length k.
+Input: nums = [1,12,-5,-6,50,3], k = 4
+Output: 12.75000
+Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
+
+'''
+
+def findMaxAverage(nums: list[int], k: int) -> float:
+    curr_sum = sum(nums[:k])
+    best = curr_sum
+
+    for i in range(k, len(nums)):
+        curr_sum += nums[i]
+        curr_sum -= nums[i - k]
+        best = max(best, curr_sum)
+
+    print(f"{best/k}, {best=}")
+
+
+
+
 
 
 if __name__ == "__main__":
