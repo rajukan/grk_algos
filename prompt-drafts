@@ -195,83 +195,44 @@ Be ready to write the same aggregation two ways — raw Python and pandas — an
 
 ----
 Pandas use the notes from https://github.com/rajukan/stats-ml-notes/blob/main/books/Smarter_pandas_workshop_safari.pdf for some best practices
------------
-randomly shuffle questions one at a time between the 3 pillars , again mentioning below with percentage
-python (50%)
-
-pandas (40%)
-
-numpy(10%)
-
-you be my interviewer and guide
+My goal is not to memorize pandas APIs. I want to develop senior-level instincts: knowing which operation to use, understanding what pandas is doing with indexes and data types, writing idiomatic/vectorized code, recognizing inefficient approaches, and being able to explain tradeoffs during an interview.
+Organize the learning priorities in this style:
+Python foundation for pandas: list/dict aggregation, comprehensions, lambda/functions, iteration, string parsing, data transformation, sorting, filtering, and understanding Python behavior — I need to be strong enough in pure Python to understand what pandas is replacing and when pandas is the better abstraction
+Pandas core mental model: Series vs DataFrame, indexes, index alignment, label-based vs positional selection (.loc vs .iloc), boolean masking, slicing/filtering, broadcasting, and understanding the restricted computation domain rather than treating pandas as “Python with tables”
+Data loading and construction: read_csv/read_parquet, DataFrame constructors, from_records, handling nested JSON with json_normalize, text vs binary formats, and understanding how input formats affect resulting dtypes
+Data cleaning: column-name normalization, mixed types, dtype coercion, nullable dtypes, missing data, duplicates, unnecessary rows/columns, entity normalization, string operations, and constructing clean pipelines with assign/mask rather than unnecessary manual loops
+Grouped operations: groupby, agg, transform, filter, and apply — understand the difference between N×G → G×G and N×G → N operations, prefer specific verbs such as agg/transform over apply when possible, avoid one function call per group, and be able to recognize when a groupby solution can be expressed using built-in/vectorized operations
+Reshaping: understand wide vs long data and become fluent with melt, pivot, pivot_table, stack, unstack, lreshape, and wide_to_long — focus on recognizing the shape transformation required rather than memorizing isolated syntax
+Multiple DataFrames: merge vs join vs concat, including left/right/inner/outer/cross joins, index-based operations, column-based operations, and understanding alignment of indexes and columns
+Datetime and time-series operations: to_datetime, datetime accessors, Timedelta, Period, diff, date filtering, resampling, and time-based aggregation
+Strings and categoricals: .str operations, string dtypes, category dtype, factorization, categorical codes/categories, and understanding memory/performance implications of strings vs categoricals
+Performance instincts: understand why pandas/numpy can outperform Python loops, why repeatedly crossing between Python objects and pandas/numpy is undesirable, memory footprint, homogeneous dtypes, nullable dtypes, categorical storage, vectorized operations, chunksize/chunk processing, and how to reason about performance without blindly optimizing
+Senior-level problem solving: for every problem, first identify the data shape, required transformation, grouping/alignment behavior, and expected output shape; then choose the most appropriate pandas operation
+Interview pattern: whenever possible, show how the same problem would be solved using pure Python and then pandas. Make me understand what pandas abstraction replaces the Python loop/dictionary/list logic and why the pandas solution is preferable or not preferable
+Practice style: give me realistic ML/data-engineering interview problems rather than trivia. Problems should involve messy data, filtering, aggregation, grouping, joining, reshaping, timestamps, missing values, duplicate records, categorical values, and large datasets. Avoid overly artificial exercises.
 
 ------------------------------
  
 Act as my interviewer for a Sr ML Engineer CodeSignal GCA (General Coding Assessment).
-
-Format: 4 question categories, each testing something specific:
-- Q1: String manipulation / simple arrays — tests speed and code clarity under time pressure (~8-10 min)
-  Example I've actually gotten: given a string, find all adjacent character pairs satisfying a frequency-based condition, return the count.
-- Q2: Array conversion / reading-heavy problems — tests extracting info from dense, prose-heavy problem statements (~12-15 min)
- - Q3: 2D matrix operations / grid traversal — tests implementation fluency, translating logic to correct code (~10-12 min)
-  Example I've actually gotten: apply a sequence of matrix operations (swap_row, swap_col, rotate) in order and return the final matrix.
-- Q4: Optimization (monotonic stack or hashmap) — tests whether I know the right data structure (~12-15 min)
-
-here are some examples:
+hhere are some examples:
 Question 1: Array Manipulation, Neighbor Sum
 
 Given array a, return array b where b[i] = a[i-1] + a[i] + a[i+1], using 0 for out-of-bounds elements.
 Example: a = [4, 0, 1, -2, 3] → [4, 5, -1, 2, 1]
-
 Question 2: String Pattern Matching, Anagram Groups
 Given array of strings strs, group anagrams together. Return groups in any order.
 Example: ["eat","tea","tan","ate","nat","bat"] → [["eat","tea","ate"],["tan","nat"],["bat"]]
-
 Question 3: Stack Problem, Largest Rectangle in Histogram
 Given integer array heights representing histogram bar heights, return the largest rectangle area.
 Stack Problem, Valid Parentheses
-Hash Map, Frequency Analysis
 Given a string, return the character that appears most frequently. If tie, return the lexicographically smaller character.
 Example: "aababccc" → "a" (appears 3 times, ties with c but a < c)
-No DP questions in this assessment.
-Question 1 is easy take 5-10 min
-Question 2 is medium problem solved using combination of array and hash map.
-3 Matrix question + sliding window combination.
-Note: 2025 questions trended toward pure reading/implementation over classic algorithm variety (e.g. Q3 shifted from BFS/dual-algorithm toward pure matrix-op sequences; Q4 shifted toward monotonic-stack dominance).
-Past company interview questions, get an idea based on file names
-analyzelpAddresses.py
-blockStorageRewrites.py
-blurFaces.py
-chatBot.py
-companyBotStrategy.py
-computerNetwork.py
-countAPI.py
-dailyOHLC.py
-dataRoute.py
-delivery.py
-deliveryFee.py
-domainForwarding.py
-domainType.py
-fancyRide.py
-fareEstimator.py
-inlineDataDeduplication.py
-marathonTaskScore.py
-nightRoute.py
-opponentMatching.py
-roadmap.py
-salesLeadsScore.py
-serverFarm.py
-shoppingList.py
-textOverlayOnHeroImage.py
+No Dynamic Programming questions in this assessment.
+
 
 Instructions for you:
 1. Randomly shuffle the 4 categories and give me ONE question at a time — don't tell me which category is next or provide any hint.
-2. Each question should be a fresh, original problem in that category (not a duplicate of the examples above, and not one I've already solved in this session) — give a concrete sample input/output and a function signature.
-3. After I give my approach and code, review it, point out bugs/edge cases/complexity issues, and tell me if it would pass in a real assessment.
-4. Don't move to the next question until I ask.
-5. Keep Q2 problem statements appropriately dense/reading-heavy, since that's the actual skill being tested there.
-
-Be my interviewer and guide
+2. Be my interviewer and guide
 ------------------------------------
 
 
