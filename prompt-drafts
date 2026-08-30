@@ -227,6 +227,7 @@ def apply_operations(matrix, operations):
 | 3 consecutive                                       | fixed window                                                      |
 | K consecutive                                       | sliding window                                                    |
 | circular / ring / wraps around                      | modulo `% n`                                                      |
+| cyclic rotation / rotated digits                    | generate transformations + set/hashmap lookup                     |
 | every K-th element / even positions / odd positions | stride / index filtering                                          |
 | strictly increasing/decreasing                      | monotonic sequence check                                          |
 | contiguous subarray                                 | sliding window / prefix sum / Kadane / stack depending on problem |
