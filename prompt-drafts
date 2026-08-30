@@ -219,28 +219,30 @@ def apply_operations(matrix, operations):
             for row in matrix:
                 row.reverse()
     return matrix
---------------------------------------------------------------------------------------------------------
-| Wording                          | Think                                                             |
-| -------------------------------- | ----------------------------------------------------------------- |
-| immediate neighbor               | index `i-1`, `i+1`                                                |
-| previous / next                  | adjacent indices                                                  |
-| 3 consecutive                    | fixed window                                                      |
-| K consecutive                    | sliding window                                                    |
-| circular / ring / wraps around   | modulo `% n`                                                      |
-| contiguous subarray              | sliding window / prefix sum / Kadane / stack depending on problem |
-| matching brackets                | stack                                                             |
-| next greater/smaller             | monotonic stack                                                   |
-| anagrams                         | hashmap + canonical representation                                |
-| frequency                        | hashmap / Counter                                                 |
-| duplicate detection              | set                                                               |
-| pairs summing to X               | hashmap / two pointers                                            |
-| sorted array + pair              | two pointers                                                      |
-| longest/shortest substring       | sliding window                                                    |
-| intervals                        | sort + greedy/merge                                               |
-| tree hierarchy                   | DFS/BFS                                                           |
-| shortest path                    | BFS / Dijkstra                                                    |
-| top K                            | heap                                                              |
---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+| Wording / Signal                                    | Think                                                             |
+| --------------------------------------------------- | ----------------------------------------------------------------- |
+| immediate neighbor                                  | `i-1`, `i+1`                                                      |
+| previous / next                                     | adjacent indices                                                  |
+| 3 consecutive                                       | fixed window                                                      |
+| K consecutive                                       | sliding window                                                    |
+| circular / ring / wraps around                      | modulo `% n`                                                      |
+| every K-th element / even positions / odd positions | **stride / index filtering**                                      |
+| strictly increasing/decreasing                      | **monotonic sequence check**                                      |
+| contiguous subarray                                 | sliding window / prefix sum / Kadane / stack depending on problem |
+| matching brackets                                   | stack                                                             |
+| next greater/smaller                                | monotonic stack                                                   |
+| anagrams                                            | hashmap + canonical representation                                |
+| frequency                                           | hashmap / `Counter`                                               |
+| duplicate detection                                 | set                                                               |
+| pairs summing to X                                  | hashmap / two pointers                                            |
+| sorted array + pair                                 | two pointers                                                      |
+| longest/shortest substring                          | sliding window                                                    |
+| intervals                                           | sort + greedy/merge                                               |
+| tree hierarchy                                      | DFS/BFS                                                           |
+| shortest path                                       | BFS / Dijkstra                                                    |
+| top K                                               | heap                                                              |
+---------------------------------------------------------------------------------------------------------------------------
 
 
 
