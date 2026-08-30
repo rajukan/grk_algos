@@ -1,19 +1,15 @@
-applied ai ml preparation
-
-How should I prepare for a Lead Machine learning engineer which is more on models, data cleaning, (pandas). Just analyze and finally come up with a topic and structure. Feel free to update the areas once i provide some real interview questions
+How should I prepare for a Lead Machine learning engineer which is more on models, evaluation, A/B testing. Just analyze and finally come up with a topic and structure. Feel free to update the areas once i provide some real interview questions
 
 I'd expect four major areas:
-
-1. Python (10%) and Pandas (15%)
-2. Statistics and Experimental Design 20%
-3. Applied Machine Learning 30%
-4. ML System Design / MLOps 15%
-5. Leadership and Decision Making 10%
-
+Statistics and Experimental Design 20%
+Applied Machine Learning 40%
+ML System Design / MLOps 30%
+Leadership and Decision Making 10%
 
 Just remember this is for machine learning, data scientist roles, not to be confused with generative AI roles
 
 here is an machine learning interview question, try to add this to one of those areas and i would like similar problems to tackle in future
+
  You have a dataset composed of 10 numerical features, one binary feature, and one numerical output variable. You assume the 10 numerical features behave nicely.
 You train a linear regression model on the samples when the binary feature is 0, and you train a linear regression model on the samples when the binary feature is 1.
 How can you determine if the binary feature made a statistical difference between the two models?
@@ -36,7 +32,7 @@ This notebook shows that you know the theory, but it doesn't show that you have 
 
 
 another one, do the same, which pillar
-Hello Everyone, I am a new grad and I am currently interviewing with a Startup for the position of ML Engineer. Having successfully navigated through the preceding rounds (5 rounds) of interviews, I find myself a bit stuck in the final coding assessment (take-home). While I have attempted the problem and have sent them the code, the feedback I received suggests that there might be a different approach they are seeking. Recognizing your expertise in the field, I believe your insights/ help could greatly assist me in addressing this challenge (please refer to the dataset link below to get a quick insight about the features).
+Hello Everyone, I am a new grad and I am currently interviewing with a Startup for the position of ML Engineer. Having successfully navigated through the preceding rounds (5 rounds) of interviews, I find myself a bit stuck in the final coding assessment (take-home). While I have attempted the problem and have sent them the code, the feedback I received suggests that there might be a different approach they are seeking. Recognizing your expertise in the field, I believe your insights/ help could greatly assist me in addressing this challenge 
 I will explain the scenario as it is:
 1. ( Interviewer sends me the question via email):
 https://www.kaggle.com/datasets/irkaal/english-premier-league-results
@@ -48,14 +44,11 @@ I am not sure what the question implies. If I do not use any match stats, then t
 I haven’t looked at the data but if it’s not a time series nor rather large I don’t see why an LSTM would be a good idea. Use something very simple and then explain how you’d improve on that solution in further iterations. 
 try a classification like approach using xgb/lgb. either the left team wins (outcome = 0) or the right team wins (outcome = 1). the order of teams is determined alphabetically. Features could be derived from previous matches and team stats.
 
---------
 another question
  Successful candidates can do more progress within the time given, as have experience with pandas as they know (or they can easily find out) the pandas functions that allow them to do things quickly (for example, encoding categorical values, can be done in one line, and handling missing values can also be done in one line 
 
---------
 another question , 
 
----
 ## Question : Operation Cyber Sentinel
 In the digital metropolis of Neo-Banking City, a cutting-edge financial institution, CyberBank, has been facing a critical challenge. Amidst the digital transactions that flow like a river through the city, there lurks a hidden menace – fraudulent transactions that threaten the security and trust of the bank's customers.
 Enter you, a renowned data scientist known for your prowess in unraveling complex data puzzles. CyberBank, in its quest to fortify its defenses against financial fraud, has enlisted your expertise. Your mission, should you choose to accept it, is to develop a sophisticated algorithm capable of detecting anomalies in transaction data, effectively sniffing out potential frauds.
@@ -90,47 +83,17 @@ Here is the extracted text from the image:
 ---
 
 Let \( S_{i,t} \) be the price of stock \( i \) on day \( t \). Suppose we fit a multivariate regression
-
 \[y = X\beta + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2),\]
-
 where \( y \in \mathbb{R}^n \) and \( X \in \mathbb{R}^{n \times 2} \) are given by
-
 \[y_i = S_{i,t+1}\]
 \[X_{i,1} = S_{i,t}\]
 \[X_{i,2} = S_{i,t-1},\]
-
 for some fixed \( t \). Intuitively, what should the coefficients \( (\beta_1, \beta_2) \) be?
-
 We could also fit two univariate regressions
-
 \[y = x_j \beta_j' + \varepsilon, \quad j = 1, 2,\]
-
 where \( x_j \) denotes the \( j \)-th column of \( X \). What should \( (\beta_1', \beta_2') \) be?
-
 Which of the coefficients \( \beta_1 \) and \( \beta_1' \) has a smaller standard error?
 
----
-
-
-Use the following as a style reference for generating ML interview practice questions. This is based on CMU's 10-601 Machine Learning course, Exam 1 Practice Problems. Generate questions in a similar format and covering similar topics:
-
-Format style:
-
-Numerical answer questions (compute a specific value from given data)
-True/False questions that require a brief justification, not just the answer
-Short answer questions (1-2 sentences)
-"Select all that apply" questions with multiple correct options
-Questions often reference a small concrete dataset or diagram (e.g., a scatter plot with labeled points, a small table of values)
-
-Topics to draw from:
-
-Decision trees: splitting criteria, overfitting vs tree depth, ID3 optimality, hybrid models like "perceptron trees" combining decision trees with perceptrons at leaf nodes
-k-Nearest Neighbors: classification and regression variants, effect of k on bias/variance, decision boundary shape, ties and distance measures, k as a hyperparameter and how to select it via validation (not training error)
-Model selection and errors: diagnosing overfitting/underfitting from train vs test error patterns, effects of training data size, cross-validation mechanics and compute-budget tradeoffs, k-fold procedure correctness
-Perceptron: convergence guarantees, mistake bounds, effect of feature scaling, inductive biases, manual weight-update tracing through examples, kernelized/modified update rules
-Linear regression: closed-form solutions for simple cases, valid matrix/vector formulations of the MSE objective, effect of outliers and duplicated data on the fitted line, Gaussian noise assumption and MLE equivalence to squared error
-
----
 
 CS229 Problem Set #1 1
 CS 229, Public Course
@@ -226,37 +189,21 @@ j
 Write J(Θ) in matrix-vector notation (i.e., without using any summations). [Hint:
 Start with the m × n design matrix
 X =
-
-
-
-
-
+
 — (x(1))T —
 — (x(2))T —
 ...
 — (x(m))T —
-
-
-
-
-
+
 CS229 Problem Set #1 3
 and the m × p target matrix
 Y =
-
-
-
-
-
+
 — (y(1))T —
 — (y(2))T —
 ...
 — (y(m))T —
-
-
-
-
-
+
 and then work out how to express J(Θ) in terms of these matrices.]
 (b) Find the closed form solution for Θ which minimizes J(Θ). This is the equivalent to
 the normal equations for the multivariate case.
@@ -341,6 +288,80 @@ be log p(y(i)|x(i); θ). By taking the derivative of the log-likelihood with res
 goemetric responses y and the canonical response function.
 ---
 
+**Topics to draw from:
+
+stats basics
+All types of statistical tests student t test, mann whitneys
+Cohen’s d
+kernel density
+MLE vs MAP
+Central limit vs law of large numbers
+
+maths 
+numpy broadcasting
+singular Value decomposition svd
+multinomial distribution 
+Expected value
+Deterministic
+Taylor Series
+Eigen Vectors, covariance matrix
+kernel trick
+Lagrange
+Gaussian Mixture models
+Partitioned Gaussian
+
+machine learning
+How do you assess regression models?
+model explainability using LIME and SHAP?
+A/B Testing
+bias and variance trade off
+bootstrap and bagging, ensemble
+confusion matrix
+curse of dimensionality
+dimensionality reduction
+Exploding and Vanishing Gradient
+Feature Scaling
+Feature Selection Techniques in Machine Learning
+Three Ways a feature can “cheat” -> 1. Classic label leakage , 2. Leakage-adjacent/”too late signal” 3.Temporal leakage (ex using half-time or full-time match stats to predict pre-kickoff win probability) 
+Correlation-based Feature Selection
+feature importance 
+gradient descent
+GPU
+Hessian
+closed form solution 
+hinge loss
+hyperparameters tuning methods
+K-Fold
+cross entropy
+K Means and Silhouette Score for Clustering.
+Label encoding ordinal vs label encoding
+loss or Error or Cost function
+optimization
+What is Occam's razor? How is this used?
+parametric-and-nonparametric-models-in-machine-learning
+pipeline
+roc-auc, accuracy paradox
+stochastic GD
+sub-gradients
+Techniques to handle imbalance data
+LASSO regression is equivalent to the MAP estimator in Bayesian linear regression
+with the prior on βi given by
+Gestalt's principles
+Can you provide an example of an app for non-negative matrix factorization?
+Dropout is a technique where random neurons are “dropped” (ignored) during training to prevent overfitting. It forces the network to be more robust and not rely too heavily on specific neurons.
+
+ML system Design
+Cold-start
+Cosine Similarity vs Euclidean Similarity
+matrix factorization
+Content Filtering vs Collaborative Filtering 
+KL divergence for Data drift 
+Anamoly Detection
+Recommendation systems
+Learning To Rank(LTR)
+pointwise pairwise listwise
+Fraud Detection Model
+
 
 Use the following as a style reference for generating ML interview practice questions. This is based on an ETH Zurich Introduction to Machine Learning final exam. Generate questions in a similar format and covering similar topics:
 
@@ -350,17 +371,6 @@ Use the following as a style reference for generating ML interview practice ques
 - Questions that reference a small concrete dataset, confusion matrix, or diagram
 - Questions with numeric answer options where you need to compute a specific value (e.g. a rate or statistic) to pick the right choice
 
-**Topics to draw from (deep learning / neural network / GAN / gradient-descent-optimization sections excluded):**
-- Regression fundamentals: convexity of the squared-error objective, conditions for a zero-residual solution, stochastic gradient descent update rules for linear regression
-- Model evaluation: train vs validation risk relationships, effect of train/validation split size on estimate quality, whether validation risk is an unbiased estimator of true population risk, effect of training set size on model risk
-- Classification metrics: computing precision, recall, false discovery rate (FDR), false positive/negative rates from a confusion matrix; behavior of random classifiers under FPR constraints; classifiers with an abstention option and cost-weighted 0-1 loss
-- Robust loss functions: Huber loss behavior relative to squared and absolute loss, convexity, whether it induces sparsity
-- Kernels: valid kernel properties, feature maps and linear separability, kernel matrix construction cost, whether every kernel corresponds to a finite-dimensional feature map
-- PCA / dimensionality reduction: the optimization objective, closed-form solution properties (trace of projection matrix), relationship to eigenvalues/eigenvectors of the covariance matrix, edge cases like duplicate features
-- Frequentist vs Bayesian inference: bootstrap estimates vs distribution-based estimates, MLE vs MAP, point estimates vs posterior distributions
-- Expectation-Maximization and clustering: likelihood of a data point under a mixture model, E-step assignment probability computation, M-step parameter updates (both soft and hard EM), Gaussian Mixture Models vs k-means equivalence under constraints
-
-Please generate one question at a time in this style, and include an answer key with a brief explanation for each.
-
-
-
+Instructions for you:
+1. Randomly generate a fresh randomized variant from the pool of patterns one at a time — don't tell me which pattern is next or provide any hint.
+2. Be my interviewer and guide. 
