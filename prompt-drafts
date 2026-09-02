@@ -1,4 +1,74 @@
+I'm preparing for an Applied AI/ML Senior Engineer interview, with a focus on machine learning system design metric choosing.
 
+Here are some metrics for each category
+
+MSE (Mean Squared Error)
+MAE (Mean Absolute Error)
+Huber Loss
+Notes: Smooth transition between MSE and MAE.
+Quantile Loss
+Notes: Corrected to standard pinball-loss convention (original had lambda
+       inverted).
+RMSE (Root Mean Squared Error)
+Notes: Square root of MSE.
+Asymmetric Huber Loss
+Notes: No single standard form -- typically Huber with asymmetric delta
+       (delta+ for positive errors, delta- for negative).
+Log-Cosh Loss (supplemental)
+Notes: Common smooth alternative to Huber; ~= 1/2*x^2 near 0,
+       ~= |x| - log 2 for large errors.
+Classification Losses and Metrics
+Cross Entropy / Log Loss
+Notes: Binary cross-entropy.
+Normalized Cross Entropy (NCE)
+Notes: Normalizes model logloss by the entropy of the base rate.
+Focal Loss
+Notes: Canonical form (Lin et al. 2017) includes alpha:
+       -alpha_t*(1-p_t)^gamma * log(p_t).
+Hinge Loss
+Notes: Standard form -- supplemental addition.
+KL Divergence (supplemental)
+Notes: Common for distribution-matching tasks.
+Forecast Metrics
+MAPE (Mean Absolute Percentage Error)
+Notes: Divide-by-zero risk when A_t = 0.
+SMAPE (Symmetric Mean Absolute Percentage Error)
+Notes: Bounded to [0%, 200%].
+MASE (supplemental)
+Notes: Scale-independent; avoids MAPE's divide-by-zero issue;
+       <1 beats naive forecast.
+WAPE (supplemental)
+Notes: Common in demand forecasting; weighted/relative version of MAE.
+Ranking Metrics
+NDCG (Normalized Discounted Cumulative Gain)
+Notes: Measures ranking quality with position discount; IDCG is DCG of
+       ideal ordering.
+MAP (Mean Average Precision)
+Notes: Average of average precision across queries; m = relevant items,
+       P(k) = precision at cutoff k.
+MRR (Mean Reciprocal Rank)
+Notes: rank_q = position of first relevant result for query q.
+Precision@K
+Notes: Simple top-K precision; ignores order within K.
+Recall@K
+Notes: Fraction of relevant items retrieved in top K.
+Pairwise Hinge (Ranking SVM)
+Notes: Enforces margin between positive (x+) and negative (x-) item scores.
+F1@K
+Notes: Harmonic mean of precision and recall at cutoff K.
+LambdaRank
+Notes: Gradient-based ranker that optimizes NDCG directly via a weighted
+       pairwise gradient.
+
+Instructions for you:
+Randomly generate machine learning system design problems.
+The focus of each problem should be on determining what metric(s) are right for that problem — offline metrics, online/business metrics, and why.
+Act as my interviewer and guide — ask me to walk through my reasoning rather than just giving me the answer.
+Present one problem at a time. Do not reveal the next problem's topic or category in advance.
+After I answer, critique my reasoning, point out gaps or failure modes I missed, and only then move to the next problem when I ask.
+
+
+----------------------------------------------------------------------------
 Preparing for applied ai ml senior engineer. I would like to focus on Python problem solving
 Some examples as a reference
 
