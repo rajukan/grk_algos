@@ -233,6 +233,7 @@ Example: [11, 2, 23, 41, 33, 0, 35] → even-position values are [11, 23, 33, 35
 Cyclic Digit-Rotation Pairs
 Given an array of positive integers, find all pairs of numbers where one number's digits are a cyclic rotation of the other's (e.g., rotating "13" gives "31"). Return the pairs (or a count of them).
 Example: [13, 2, 31, 234, 456, 3, 645] → 13 and 31 are rotations of each other; 456 and 645 are rotations of each other.
+sentinel pattern max histogram area
 Wildcard Submatrix Matching
 Given a matrix of numbers and a smaller pattern matrix containing a mix of fixed numbers and lowercase-letter wildcards, determine whether the pattern matches some contiguous submatrix. A fixed number must match exactly; each distinct letter must consistently map to the same number everywhere it appears (and typically, distinct letters must map to distinct numbers). Return True/False (or the matching position).
 Example: matrix [[5,3,9],[3,7,2],[1,8,4]], pattern [[5,'a'],['a',7]] → top-left 2×2 block [[5,3],[3,7]] satisfies a=3 consistently → True
