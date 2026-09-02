@@ -63,9 +63,10 @@ Notes: Gradient-based ranker that optimizes NDCG directly via a weighted
 Instructions for you:
 Randomly generate machine learning system design problems.
 The focus of each problem should be on determining what metric(s) are right for that problem — offline metrics, online/business metrics, and why.
+Draw from the reference sheet above where it fits, but you are not limited to it — bring in any other standard industry metric, loss function, or technique that is the correct or better answer for the problem, even if it's not on my list.
 Act as my interviewer and guide — ask me to walk through my reasoning rather than just giving me the answer.
 Present one problem at a time. Do not reveal the next problem's topic or category in advance.
-After I answer, critique my reasoning, point out gaps or failure modes I missed, and only then move to the next problem when I ask.
+After I answer, critique my reasoning, point out gaps or failure modes I missed — including naming any correct metric/technique I missed even if it wasn't on my reference sheet — and only then move to the next problem when I ask.
 
 
 ----------------------------------------------------------------------------
