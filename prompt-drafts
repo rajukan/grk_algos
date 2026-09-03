@@ -59,6 +59,35 @@ Notes: Harmonic mean of precision and recall at cutoff K.
 LambdaRank
 Notes: Gradient-based ranker that optimizes NDCG directly via a weighted
        pairwise gradient.
+RAG (Retrieval-Augmented Generation) Metrics
+Recall@K (retrieval): Reused from Ranking. Did relevant chunk(s) appear in top K retrieved.
+Precision@K (retrieval): Reused from Ranking. Fraction of retrieved chunks that are relevant.
+Hit Rate@K: Binary version of recall@K. At least one relevant chunk in top K.
+MRR / NDCG (retrieval ordering): Reused from Ranking. Matters when chunk order affects truncation or context weighting.
+Context Precision: Fraction of retrieved chunks that are actually relevant. Penalizes noisy context that dilutes the LLM's window.
+Context Relevance: Whether retrieved context relates to the query at all. Inverse framing of Context Precision.
+Faithfulness / Groundedness: Does the generated answer only assert what's supported by retrieved context. Typically LLM-judged (entailment scoring). Core hallucination metric for RAG.
+Answer Relevance: Does the generated answer actually address the question. Distinct from whether it's grounded.
+BLEU / ROUGE / BERTScore (supplemental): Reference-based NLG overlap metrics. Weak fit for open-ended RAG QA since there's rarely one correct phrasing. Mention as context, explain limitation.
+RAGAS (framework note): Common framework bundling Faithfulness, Answer Relevance, Context Precision/Relevance into one eval suite.
+Chatbot / Conversational Metrics
+Task Success Rate / Task Completion Rate: Did the conversation resolve the user's actual goal. North-star metric for assistant-style bots.
+Intent Classification Accuracy / F1: Standard classification metrics for the NLU/routing layer. Precision/recall/F1 per intent, confusion matrix for commonly confused intents.
+Slot-Filling Accuracy: Correctness of structured field extraction (dates, amounts, destinations) within a turn.
+Containment Rate / Deflection Rate: Fraction of conversations resolved without human escalation.
+Escalation Rate: Inverse-ish signal. Watch timing. Late escalation wastes turns. Early escalation may signal good self-awareness by the bot.
+Turns-to-Resolution: Efficiency measure. Too high suggests confusion loops. Too low may mean premature/wrong closure.
+Coherence: Whether the bot maintains context and avoids self-contradiction across turns. Typically LLM-judged.
+Repetition / Loop Rate: Bot re-asking or repeating itself. Common production failure mode.
+Fallback Rate: Frequency of "I don't understand" or default responses.
+Hallucination Rate: Ties back to Faithfulness in RAG section.
+Toxicity / Policy-Violation Rate: Safety metric. Frequency of harmful or policy-violating outputs.
+Refusal Rate / Over-Refusal Rate: Trade-off metric. Too-cautious bots hurt task completion.
+Business / Online Metrics (cross-cutting, supplemental)
+CSAT / Thumbs Up-Down Rate / NPS: Direct user satisfaction signal. Applicable to RAG and chatbot products.
+Handle Time Reduction: Vs. human-only baseline. Key for enterprise/support chatbots.
+Retention / Repeat Usage: Of the chatbot channel specifically.
+Cost per Resolved Conversation: Compute cost at scale. Often overlooked in offline-metric-only discussions.
 
 Instructions for you:
 Randomly generate machine learning system design problems.
