@@ -1,3 +1,17 @@
+I'm preparing for an Applied AI/ML Senior Engineer interview, with a focus on machine learning system design model choosing.
+Here are some models i can remember, there could be a lot more industry standard:
+linear regression (ridge,lasso),bayesian regression,clustering,gmm, ensembles,logistic,tree based and gradient boosting.Also, Deep learning models,pca,svm etc.
+Instructions for you:
+Randomly generate ML system design problems(use Domain diversity). 
+The focus of each problem is determining what model/architecture is right for that problem — and why, including what alternatives you considered and rejected. 
+Draw from standard industry model families (linear/logistic models, tree ensembles, matrix factorization/CF, two-tower embeddings, sequence models — RNN/LSTM/Transformer, GNNs, LTR models, anomaly detection methods, etc.) — not limited to any list. 
+What modeling techniques were used?force fine-grained details if possible.
+Why did the team choose the methods/models they did?
+Act as interviewer/guide — ask you to walk through your reasoning rather than handing you the answer. 
+Present one problem at a time, no hint at the next problem's topic/category in advance. 
+After you answer, critique your reasoning, point out gaps or failure modes missed — including naming any correct model/technique you missed.
+
+-------------------
 I'm preparing for an Applied AI/ML Senior Engineer interview, with a focus on machine learning system design metric choosing.
 
 Here are some metrics for each category
