@@ -1,0 +1,103 @@
+I am preparing for a Senior Machine Learning / Applied AI/ML Engineer interview and want to learn PySpark from first principles over 20 days.
+
+MY CURRENT LEVEL
+Python: 9/10
+Pandas: 9/10
+PySpark: 1/10
+SQL: beginner/intermediate unless told otherwise
+AWS Glue: no prior hands-on experience
+Databricks: no/limited prior experience
+Spark: assume essentially no conceptual foundation
+
+I am strong in Python and Pandas — don't spend time teaching basic Python. Use my existing Python/Pandas knowledge as a bridge to explain how PySpark is different, but do NOT imply Spark is "Pandas but bigger." It is a fundamentally different distributed execution model.
+
+PRIMARY OBJECTIVE
+My goal is not to become a Spark platform administrator or specialist. My goal is to become a Senior ML Engineer who can:
+1. Write PySpark code and understand what it's doing
+2. Explain why PySpark is useful for large ML datasets
+3. Build distributed ETL/data-preparation pipelines
+4. Prepare large datasets for ML training and inference
+5. Explain Spark concepts at a senior interview level
+6. Troubleshoot common Spark performance problems
+7. Design an ML data pipeline using PySpark
+8. Explain how PySpark fits into AWS Glue, S3, Iceberg, Snowflake, and SageMaker
+9. Eventually map these Spark concepts to Databricks
+
+Primary use case: PySpark for preparing data for SageMaker/ML models. Spark MLlib is NOT the focus.
+
+ARCHITECTURE CONTEXT
+Representative pipeline: Vendor/FTP/external source -> S3 -> PySpark -> clean/validate/standardize -> Iceberg tables -> SQL joins/transformations -> ML-ready dataset -> SageMaker (training/inference). Snowflake is a possible downstream system.
+
+TECHNOLOGY DISTINCTIONS (do not blur these)
+S3: cloud object storage / data lake
+PySpark: distributed data-processing engine
+AWS Glue: managed AWS environment for running Spark ETL jobs, integrates with AWS services
+Iceberg: table format providing table semantics over object storage
+Snowflake: cloud data warehouse / analytical platform
+Databricks: managed Spark/data/ML platform
+SageMaker: ML training/inference/platform services
+I want to be able to say in an interview: "PySpark is the distributed processing engine. Glue or Databricks provides the managed environment in which that Spark processing can run."
+
+TEACHING PHILOSOPHY
+Do not assume I understand: distributed computing, partitions, executors, shuffle, lazy evaluation, Spark jobs/stages/tasks, broadcast joins, data skew. Build the mental model before terminology. Use Pandas analogies where useful, but always name the important difference (e.g. Pandas processes on one machine; Spark distributes across partitions/executors).
+
+20-DAY CURRICULUM
+Days 1-5 (fundamentals): Day1 What is Spark/PySpark (Spark vs Pandas, SparkSession, DataFrames, driver, executors, basic partitions, transformations vs actions) / Day2 DataFrames and schemas (rows, columns, schema, dtypes, show, printSchema, select) / Day3 Basic transformations (filter, where, select, withColumn, drop, alias, cast) / Day4 Feature/data prep (when, otherwise, null handling, type conversion, standardization, feature creation) / Day5 Aggregations (groupBy, agg, count, sum, avg, min, max) tied to ML feature engineering
+
+Days 6-10 (execution model): Day6 Spark SQL (both DataFrame API and SQL, comfortable switching between them) / Day7 Lazy evaluation (transformations vs actions, logical execution, why Spark doesn't execute immediately) / Day8 Partitions (what/why, parallel processing, partition count, basic repartition) / Day9 Narrow vs wide transformations (narrow: filter/select/withColumn; wide: groupBy/join/distinct/orderBy) / Day10 Shuffle (what it is, why it happens, why expensive, relation to partitions, basic troubleshooting)
+
+Days 11-15 (real ML data engineering): Day11 Joins (inner/left/right/full/semi/anti, ML-style datasets) / Day12 Broadcast joins (why it exists, when appropriate, limitations, broadcast(), reasoning not just "small table = broadcast") / Day13 Data skew (hot keys, uneven partitions, detection, mitigation) / Day14 repartition() vs coalesce() (increase/decrease partitions, shuffle implications, output file implications, when to use each) / Day15 Error handling and retry (Python exceptions, Spark task/job retries, pipeline-level retries, bad records, validation failures, partial failures, idempotency, restartability, avoiding duplicate outputs — distinguish task retry vs job retry vs pipeline retry)
+
+Days 16-20 (production ML + AWS): Day16 Parquet + S3 (CSV vs Parquet, columnar storage, schema, compression, read/write S3, why Parquet for analytical processing) / Day17 Predicate pushdown + partition pruning + file sizing (partition columns, file sizes, small-file problem) / Day18 AWS Glue from first principles (Glue job, Spark runtime, Data Catalog, bookmarks, job parameters, how PySpark runs in Glue vs local Spark — I have never used Glue) / Day19 Iceberg + Snowflake + Databricks (why Iceberg, snapshots, schema evolution, basic partitioning, ETL into Iceberg, SQL after tables exist, Snowflake as downstream ML consumption, how Glue/Spark concepts translate to Databricks) / Day20 Senior ML pipeline interview simulation (realistic 2-5TB/day vendor transaction pipeline: ingest, validate, clean, dedupe, standardize, join dimensions, generate ML features, produce training/inference dataset, handle failures/retries/skew/large+small files, write to Iceberg, feed SageMaker — defend the architecture)
+
+UDF / BATCH INFERENCE REQUIREMENT
+Cover Python UDFs, Pandas UDFs, vectorized processing, batch inference, large-scale ML inference as an ML engineering topic, not just API syntax. Explain: why plain Python UDFs are problematic, where the model is loaded, how executors access it, why loading a model per row is bad, batching, model reuse, memory implications, serialization, when Pandas UDF makes sense vs when SageMaker Batch Transform or another inference architecture is more appropriate. Include a syntax example like:
+@pandas_udf("double")
+def predict(features: pd.Series) -> pd.Series:
+    return model.predict(features)
+but only after explaining the reasoning above.
+
+CODING ENVIRONMENT
+Start local: SparkSession.builder.master("local[*]").getOrCreate() — no AWS/Databricks account needed for early lessons. Later, explain what changes moving to AWS Glue and Databricks.
+
+LESSON FORMAT — Format B: Full Lesson, every lesson contains:
+1. Concept (first principles)
+2. Mental model (simple picture of what Spark is doing)
+3. Code (runnable PySpark, realistic ML/data-engineering examples over toy examples)
+4. Walk through the code (explain important lines)
+5. Quiz (mix of conceptual, code-reading, "what happens internally", interview-style questions)
+6. Exercise (something to run/write in my IDE — do not give the solution unless asked)
+
+DIFFICULTY PROGRESSION: 1/10 basic DataFrame ops -> 2/10 transformations -> 3/10 aggregations -> 4/10 execution model -> 5/10 partitions+shuffle -> 6/10 joins -> 7/10 optimization -> 8/10 large-scale ML ETL -> 9/10 AWS Glue+Iceberg -> 10/10 senior ML pipeline design. Do not skip ahead to optimization before fundamentals are solid.
+
+DATASET STRATEGY: vary datasets across lessons (customer transactions, orders, clickstream, fraud, recommendation data, customer behavior, telemetry/observability, model inference data, vendor files) — do not force one dataset for the whole course. Prefer ML-oriented examples. Keep examples generic — do not cross-reference my real production pipeline.
+
+PERFORMANCE TOPICS TO COVER (don't front-load before basics): partitioning, shuffle, broadcast joins, sort-merge joins, data skew, repartition, coalesce, caching, persistence, predicate pushdown, partition pruning, file sizes, small-file problem, execution plans, lazy evaluation, narrow vs wide transformations.
+
+LOWER PRIORITY (mention only, don't dwell): Spark unit testing, deep JVM internals, Spark platform administration, cluster provisioning, advanced Catalyst internals, RDD programming. Keep DataFrames + Spark SQL as the center.
+
+INTERVIEW PREPARATION STYLE: distinguish beginner understanding ("What is a partition?") vs practical engineering understanding ("How would partitions affect this job?") vs senior interview answer ("How would you design this pipeline to process 5TB/day?"). Do not give polished senior-level phrasing by default — only when I explicitly ask.
+
+TEACHING RULE FOR EVERY MAJOR CONCEPT: What is it? -> Why does Spark need it? -> What happens internally? -> What does the code look like? -> When does it become a problem? -> How would I handle it? -> How would I explain it in an interview?
+
+INTERACTION RULES
+Teach one lesson at a time — never dump multiple days at once. Pacing: strictly one lesson per calendar day/session — always wait for me to explicitly say "next" before advancing, even within the same conversation.
+At the start of each lesson, state: "Day X / 20", topic, learning objective.
+Commands:
+"solution" -> give the solution and explanation
+"explain" -> explain the concept more deeply
+"hint" -> hint only
+"next" -> move to the next lesson
+"interview me" -> switch to interviewer mode
+"senior answer" -> give the concise senior-level interview phrasing
+"quiz me" -> additional questions, no answers revealed
+"review my code" -> review my code and explain what to change
+If my answer is incorrect, explain the misconception first before giving the correct answer.
+
+TIME CONSTRAINT: each daily lesson should fit approximately 30 minutes. Don't pad lessons unnecessarily — prioritize what's most likely to matter for a Senior ML Engineer interview.
+
+PACING/SCOPE NOTE: there is no fixed interview deadline driving this course — follow the Day 1-20 sequence as written above rather than reordering toward AWS/Glue/Iceberg topics early.
+
+FINAL OBJECTIVE: by Day 20, be able to reason through and defend, end to end: data ingestion -> S3 -> PySpark -> partitions -> transformations -> validation -> joins -> shuffle -> skew -> optimization -> Iceberg -> ML dataset -> SageMaker/batch inference — explaining why each architectural choice was made, not just naming the technology.
+
+Start with Day 1: What is PySpark?, assuming I know Python/Pandas very well but know almost nothing about Spark.
