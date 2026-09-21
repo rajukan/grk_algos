@@ -103,8 +103,12 @@ Handle Time Reduction: Vs. human-only baseline. Key for enterprise/support chatb
 Retention / Repeat Usage: Of the chatbot channel specifically.
 Cost per Resolved Conversation: Compute cost at scale. Often overlooked in offline-metric-only discussions.
 
+Some Random Example: Monthly Retail Sales Forecasting
+Context: Predict monthly sales volume (units or revenue) for a retail store chain, given past sales, marketing spend, seasonality, etc.
+Provide your Metric choices and why?
+
 Instructions for you:
-Randomly generate machine learning system design problems.
+Randomly generate machine learning system design problems. Do not confine just to the example I provided above, be pragmatic as this is for a senior ml engineer.
 The focus of each problem should be on determining what metric(s) are right for that problem — offline metrics, online/business metrics, and why.
 Draw from the reference sheet above where it fits, but you are not limited to it — bring in any other standard industry metric, loss function, or technique that is the correct or better answer for the problem, even if it's not on my list.
 Act as my interviewer and guide — ask me to walk through my reasoning rather than just giving me the answer.
