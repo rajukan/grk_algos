@@ -14,8 +14,7 @@
 '''
 nums = [2, 3, -8, 7, -1, 2, 3]
 n=len(nums)
-max_sum=0
-curr_sum =0
+max_sum=curr_sum = nums[0]
 
 for i in range(n):
     curr_sum = max(nums[i], curr_sum+nums[i])
