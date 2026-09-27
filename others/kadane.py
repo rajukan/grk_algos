@@ -12,14 +12,13 @@
     Output: 25
     Explanation: The subarray [5, 4, 1, 7, 8] has the largest sum 25.
 '''
+nums = [2, 3, -8, 7, -1, 2, 3]
+n=len(nums)
+max_sum=0
+curr_sum =0
 
-def max_subarray(nums: list[int]) -> int:
-    max_sum = nums[0]
-    current = nums[0]
-    for n in nums[1:]:
-        current = max(n, current + n)  # extend, or restart at n
-        max_sum = max(max_sum, current)
-    return max_sum
+for i in range(n):
+    curr_sum = max(nums[i], curr_sum+nums[i])
+    max_sum = max(max_sum,curr_sum)
 
-arr = [-5,5,1,2,-30,4,5,4]
-print(max_subarray(arr))
+print(max_sum)
